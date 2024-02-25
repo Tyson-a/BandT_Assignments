@@ -5,7 +5,7 @@ import React from 'react';
 export default interface TableProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  backgroundColor: string;
+  backgroundColor?: string;
   stars?: number;
   starsHTML?: number;
   starsCSS?: number;

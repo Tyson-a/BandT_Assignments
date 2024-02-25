@@ -1,4 +1,1 @@
-// Button.ts
-import MyHeroImage from './HeroImage';
-
-export default MyHeroImage;
+export { default as MyHeroImageComponent } from './HeroImage';

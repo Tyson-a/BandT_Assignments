@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MyButton from '../Button';
-import MyDropDown from '../Dropdown';
+import { MyDropdownComponent } from '../Dropdown';
 import { HeroImageProps } from './HeroImage.types';
-import MyRadioButton from '../RadioButton';
-import LabelComponent from '../Label';
+import { MyRadioButtonComponent } from '../RadioButton';
+import { MyLabelComponent } from '../Label';
 
 const HeroImageContainer = styled.div`
   position: relative;
@@ -83,17 +83,17 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
   return (
     <HeroImageContainer>
       <NavBar style={{ backgroundColor }}>
-        <LabelComponent htmlFor="tysonName" text="Tyson La" disabled={disabled} />
+        <MyLabelComponent htmlFor="tysonName" text="Tyson La" disabled={disabled} />
         <BurgerMenu aria-label="Toggle menu">
-          <MyDropDown backgroundColor="transparent" boxShadow="none" disabled={disabled} />
+          <MyDropdownComponent backgroundColor="transparent" boxShadow="none" disabled={disabled} />
         </BurgerMenu>
       </NavBar>
       <CardContent>
         <ContentWrap>
-          <LabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} />
-          <LabelComponent htmlFor="websites" text="I make websites" disabled={disabled} />
+          <MyLabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} />
+          <MyLabelComponent htmlFor="websites" text="I make websites" disabled={disabled} />
           <RadioButtonsContainer>
-            <MyRadioButton
+            <MyRadioButtonComponent
               options={pictureOptions}
               onChange={handlePictureChange}
               disabled={disabled}
@@ -107,7 +107,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
                 boxShadow="0px 7px 2px black, 0px 8px 5px #000"
                 disabled={disabled}
               >
-                <LabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
+                <MyLabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
               </MyButton>
 
               <MyButton
@@ -116,7 +116,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
                 boxShadow="0px 7px 2px black, 0px 8px 5px #000"
                 disabled={disabled}
               >
-                <LabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
+                <MyLabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
               </MyButton>
             </ButtonContainer>
           </div>

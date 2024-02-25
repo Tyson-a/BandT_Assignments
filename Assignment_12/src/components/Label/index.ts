@@ -1,4 +1,1 @@
-// Button.ts
-import MyRadioButton from './Label';
-
-export default MyRadioButton;
+export { default as MyLabelComponent } from './Label';

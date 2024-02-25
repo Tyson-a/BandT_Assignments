@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 
 
 export interface LabelProps {
-  htmlFor: string;
+  htmlFor?: string;
   text: string;
   fontFamily?: string;
   style?: CSSProperties;

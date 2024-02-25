@@ -2,10 +2,10 @@
 import React from 'react';
 
 export interface MyCardProps {
-  imageSrc: string;
-  text: string;
-  color: string
-  children: React.ReactNode;
+  imageSrc?: string;
+  text?: string;
+  color?: string
+  children?: React.ReactNode;
   disabled?: boolean;
   backgroundColor?: string;
 }

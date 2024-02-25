@@ -1,4 +1,1 @@
-// Button.ts
-import MyRadioButton from './RadioButton';
-
-export default MyRadioButton;
+export { default as MyRadioButtonComponent } from './RadioButton';

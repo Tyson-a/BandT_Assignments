@@ -1,4 +1,1 @@
-// Button.ts
-import MyCard from './Card';
-
-export default MyCard;
+export { default as MyCardComponent } from './Card';

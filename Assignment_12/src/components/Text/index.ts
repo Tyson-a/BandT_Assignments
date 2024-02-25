@@ -1,4 +1,1 @@
-// Button.ts
-import MyTextComponent from './Text';
-
-export default MyTextComponent;
+export { default as MyTextComponent } from './Text';
