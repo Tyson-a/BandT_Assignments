@@ -5,6 +5,6 @@ export interface MyButtonProps {
   children: React.ReactNode;
   onClick: () => void;
   disabled?: boolean;
-  backgroundColor: string;
-  boxShadow: string;
+  backgroundColor?: string;
+  boxShadow?: string;
 }

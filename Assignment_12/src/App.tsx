@@ -9,7 +9,7 @@ function App() {
     <>
       <h1>Vite + React</h1>
       <div className="card">
-        <MyButton backgroundColor="#fff" boxShadow="2px 2px 2px #888888" onClick={() => setCount(count => count + 1)}>
+        <MyButton onClick={() => setCount(count => count + 1)}>
           count is {count}
         </MyButton>
         <p>
