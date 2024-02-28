@@ -2,7 +2,7 @@
 import React from 'react';
 
 export interface MyCardProps {
-  imageSrc?: string;
+  src: string;
   text?: string;
   color?: string
   children?: React.ReactNode;

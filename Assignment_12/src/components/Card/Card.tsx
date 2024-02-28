@@ -48,10 +48,10 @@ const StyledCard = styled.div<StyledCardProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const Card: React.FC<MyCardProps> = ({ imageSrc = 'src/components/Card/hero-card-complete.jpeg', text, disabled, backgroundColor, color }) => {
+const Card: React.FC<MyCardProps> = ({src, text, disabled, backgroundColor, color }) => {
   return (
-    <StyledCard disabled={disabled} backgroundColor={backgroundColor} color={color}>
-      <img src={imageSrc} alt="Card Image" />
+    <StyledCard  disabled={disabled} backgroundColor={backgroundColor} color={color}>
+      <img src={src} alt="Card Image" />
       {!disabled && <div className="cardText">{text}</div>}
     </StyledCard>
   );

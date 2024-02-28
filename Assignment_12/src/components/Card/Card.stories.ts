@@ -33,7 +33,7 @@ export default meta;
 
 export const Default: StoryObj<typeof Card> = {
   args: {
-    imageSrc: "src/components/Card/hero-card-complete.jpeg",
+    src: "./hero-card-complete.jpeg",
     text: " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     disabled: false,
   },
@@ -41,7 +41,7 @@ export const Default: StoryObj<typeof Card> = {
 
 export const disabled: StoryObj<typeof Card> = {
   args: {
-    imageSrc: "src/components/Card/hero-card-complete.jpeg",
+    src: "./hero-card-complete.jpeg",
     text: " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     disabled: true,
   },
