@@ -1,0 +1,1 @@
+export { default as MyNavBarComponent } from './NavBar';

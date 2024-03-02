@@ -1,75 +1,53 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MyButton from '../Button';
-import { MyDropdownComponent } from '../Dropdown';
 import { HeroImageProps } from './HeroImage.types';
 import { MyRadioButtonComponent } from '../RadioButton';
 import { MyLabelComponent } from '../Label';
-
-const HeroImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  color: white;
-`;
-
-const NavBar = styled.nav`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-`;
-
-const CardContent = styled.div`
-  position: absolute;
-  padding: 20px;
-  z-index: 2;
-  width: 100%;
-`;
-
-const BurgerMenu = styled.button`
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-`;
+import { MyNavBarComponent } from '../NavBar';
 
 const ButtonContainer = styled.div`
   margin-top: 10px;
   display: flex;
-  justify-content: center;
   gap: 10px;
+`;
+
+const HeroImageContainer = styled.div`
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: white;
+`;
+
+const CardContent = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0; /* Position at the left side */
+  transform: translate(0, -50%);
+  padding: 40px; /* Increase padding to make it bigger */
+  color: white;
+  z-index: 2;
 `;
 
 const CardImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(70%);
+  z-index: 1;
 `;
 
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  margin-bottom: 10px;
 `;
-
 
 const RadioButtonsContainer = styled.div`
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px; /* Increase padding to make it bigger */
 `;
-
 
 const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
   const [selectedPicture, setSelectedPicture] = useState('Banff');
@@ -78,51 +56,45 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
     setSelectedPicture(selectedOption);
   };
 
-  const pictureOptions = ['Banff', 'Jasper', 'Yoho'];
+  const pictureOptions = ['Banff', 'Jasper', 'Herbert'];
 
   return (
     <HeroImageContainer>
-      <NavBar style={{ backgroundColor }}>
-        <MyLabelComponent htmlFor="tysonName" text="Tyson La" disabled={disabled} />
-        <BurgerMenu aria-label="Toggle menu">
-          <MyDropdownComponent backgroundColor="transparent" boxShadow="none" disabled={disabled} />
-        </BurgerMenu>
-      </NavBar>
+      <MyNavBarComponent backgroundColor={backgroundColor} disabled={disabled} >
+      </MyNavBarComponent>
+      <CardImage src={`src/components/HeroImage/${selectedPicture}.jpg`} alt={selectedPicture} />
       <CardContent>
         <ContentWrap>
-          <MyLabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} />
-          <MyLabelComponent htmlFor="websites" text="I make websites" disabled={disabled} />
-          <RadioButtonsContainer>
-            <MyRadioButtonComponent
-              options={pictureOptions}
-              onChange={handlePictureChange}
+          <MyLabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />
+          <MyLabelComponent htmlFor="websites" text="I make websites" disabled={disabled}  fontSize='25px'/>
+          <ButtonContainer>
+            <MyButton
+              onClick={() => console.log("Button clicked")}
+              backgroundColor="black"
+              boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
-            />
-          </RadioButtonsContainer>
-          <div>
-            <ButtonContainer>
-              <MyButton
-                onClick={() => console.log("Button clicked")}
-                backgroundColor="black"
-                boxShadow="0px 7px 2px black, 0px 8px 5px #000"
-                disabled={disabled}
-              >
-                <MyLabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
-              </MyButton>
-
-              <MyButton
-                onClick={() => console.log("Button clicked")}
-                backgroundColor="black"
-                boxShadow="0px 7px 2px black, 0px 8px 5px #000"
-                disabled={disabled}
-              >
-                <MyLabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
-              </MyButton>
-            </ButtonContainer>
-          </div>
-        </ContentWrap>
+            >
+              <MyLabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
+            </MyButton>
+            <MyButton
+              onClick={() => console.log("Button clicked")}
+              backgroundColor="black"
+              boxShadow="0px 7px 2px black, 0px 8px 5px #000"
+              disabled={disabled}
+            >
+              <MyLabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
+            </MyButton>
+          </ButtonContainer>
+        </ContentWrap>        
       </CardContent>
-      <CardImage src={`src/components/HeroImage/${selectedPicture}.jpg`} alt={selectedPicture} />
+      <RadioButtonsContainer>
+        <MyRadioButtonComponent
+          options={pictureOptions}
+          onChange={handlePictureChange}
+          disabled={disabled}
+          circleSize='30px'
+        />
+      </RadioButtonsContainer>
     </HeroImageContainer>
   );
 };

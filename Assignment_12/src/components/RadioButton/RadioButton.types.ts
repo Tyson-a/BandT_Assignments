@@ -6,4 +6,5 @@ export interface RadioButtonProps {
     disabled?: boolean;
     backgroundColor?: string;
     children?: React.ReactNode;
+    circleSize: string;
   }

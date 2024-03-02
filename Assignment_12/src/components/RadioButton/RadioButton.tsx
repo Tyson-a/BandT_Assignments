@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RadioButtonProps } from './RadioButton.types';
 
-const RadioButton: React.FC<RadioButtonProps> = ({ options = [], onChange, disabled = false, backgroundColor = 'tranlucent' }) => {
+const RadioButton: React.FC<RadioButtonProps> = ({ options = [], onChange, disabled = false, backgroundColor = 'tranlucent', circleSize = '20px' }) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +20,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ options = [], onChange, disab
             checked={selectedOption === option}
             onChange={handleOptionChange}
             disabled={disabled}
+            style={{ width: circleSize, height: circleSize }}
           />
         </label>
       ))}

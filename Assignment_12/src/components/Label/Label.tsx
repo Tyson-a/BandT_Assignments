@@ -1,12 +1,13 @@
 import React, { CSSProperties } from 'react';
 import { LabelProps } from './Label.types.ts';
 
-const LabelComponent: React.FC<LabelProps> = ({ htmlFor, text, bold, fontFamily, disabled, backgroundColor }) => {
+const LabelComponent: React.FC<LabelProps> = ({ htmlFor, text, bold, fontFamily, disabled, backgroundColor, fontSize }) => {
   const labelStyle: CSSProperties = {
     fontWeight: bold ? 'bold' : 'normal',
-    fontFamily: fontFamily || '', // you can set a default value or remove it based on your requirements
-    color: disabled ? 'gray' : '', // set color when disabled if needed
-    backgroundColor: disabled ? 'transparent' : backgroundColor || '', // set background color when disabled or use the provided value
+    fontFamily: fontFamily || '',
+    color: disabled ? 'gray' : '',
+    backgroundColor: disabled ? 'transparent' : backgroundColor || '',
+    fontSize: fontSize || 'inherit', // Set a default value or adjust as needed
   };
 
   return <label htmlFor={htmlFor} style={labelStyle}>{text}</label>;

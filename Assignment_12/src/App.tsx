@@ -23,7 +23,7 @@ function App() {
         <TextComponent text = "Hello world" fontFamily='arial' />
         <HeroImageComponent/>
         <DropdownComponent />
-        <MyCardComponent text='this is a test to see what my card component can do'/>
+        <MyCardComponent src = "./hero-card-complete.jpeg" text='this is a test to see what my card component can do'/>
         <MyTableComponent starsCSS={5} starsHTML={2}/>
 
         <p>
