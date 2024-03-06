@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import  TextProps  from './Text.types.ts';
 
-
-
 const StyledText = styled.span<TextProps>`
   font-family: ${(props) => props.fontFamily || 'inherit'};
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
