@@ -8,7 +8,7 @@ This file contains a Dockerfile for containerizing a web application and running
 
     git clone 
 
-    https://github.com/Tyson-a/Assignment_12_Tyson
+    https://github.com/Tyson-a/BandT_Assignments
   
 
 2. Navigate to the project directory:

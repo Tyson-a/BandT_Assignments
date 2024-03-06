@@ -7,7 +7,9 @@ const meta: Meta<typeof Img> = {
   component: Img,
   parameters: {
     layout: 'centered',
+    
   },
+  tags: ['autodocs'],
   argTypes: {
     src: {
       control: 'text',
@@ -65,5 +67,27 @@ export const Disabled: StoryObj<typeof Img> = {
     quality: 75,
     backgroundColor: '#FFFFFF',
     disabled: true,
+  },
+};
+
+export const HeroImg: StoryObj<typeof Img> = {
+  args: {
+    src: './OldMan.jpg', 
+    alt: 'An old man',
+    width: '1000px',
+    height: '350px',
+    quality: 100,
+    backgroundColor: '#FFFFFF',
+  },
+};
+
+export const gridImg: StoryObj<typeof Img> = {
+  args: {
+    src: './OldMan.jpg', 
+    alt: 'An old man',
+    width: '250px',
+    height: '250px',
+    quality: 100,
+    backgroundColor: '#FFFFFF',
   },
 };

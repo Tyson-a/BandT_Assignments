@@ -41,5 +41,16 @@ export const disabled: StoryObj<typeof LabelComponent> = {
     text: "View Portfolio"
   },
 };
+
+export const disabled2: StoryObj<typeof LabelComponent> = {
+  args: {
+    disabled: false,
+    text: "Tyson's Portfolio",
+    bold: true
+  },
+};
+
+
+
   
   

@@ -1,17 +1,17 @@
-import React, { CSSProperties } from 'react';
-import { TextProps } from './Text.types.ts';
+import React from 'react';
+import styled from 'styled-components';
+import  TextProps  from './Text.types.ts';
 
-const TextComponent: React.FC<TextProps> = ({ text, fontFamily = '', style = {}, bold = false, color, disabled = false, backgroundColor,fontSize, ...rest }) => {
-  const textStyle: CSSProperties = {
-    fontFamily: fontFamily,
-    fontWeight: bold ? 'bold' : 'normal',
-    color: disabled ? 'gray' : color || style.color,
-    backgroundColor: disabled ? 'transparent' : backgroundColor || style.backgroundColor, // Set to transparent by default
-    ...style,
-    fontSize: fontSize || 'inherit', // Set a default value or adjust as needed
-  };
+const StyledText = styled.span<TextProps>`
+  font-family: ${(props) => props.fontFamily || 'inherit'};
+  font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
+  color: ${(props) => (props.disabled ? 'gray' : props.color || (props.style && props.style.color) || 'inherit')};
+  background-color: ${(props) => (props.disabled ? 'transparent' : props.backgroundColor || (props.style && props.style.backgroundColor) || 'transparent')};
+  font-size: ${(props) => props.fontSize || 'inherit'};
+`;
 
-  return <span style={textStyle} {...rest}>{text}</span>;
+const TextComponent: React.FC<TextProps> = ({ text, ...props }) => {
+  return <StyledText {...props}>{text}</StyledText>;
 };
 
 export default TextComponent;

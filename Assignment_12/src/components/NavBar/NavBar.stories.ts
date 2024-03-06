@@ -7,6 +7,7 @@ const meta: Meta<typeof NavBar> = {
   parameters: {
     layout: 'centered',
   },
+  tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
       control: 'color',

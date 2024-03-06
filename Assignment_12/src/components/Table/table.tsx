@@ -4,7 +4,7 @@ import TableHeader from './Table_Header/Table_Header.tsx';
 import TableRow from './Table_Row/Table_Row.tsx';
 import TableCell from './Table_Cell/Table_Cell.tsx';
 import TableFooter from './Table_Footer/Table_Footer.tsx';
-import TableProps from './Table_Types'
+import TableProps from './Table.types.ts'
 import styled, { css } from 'styled-components';
 
 const StyledTable = styled.table<TableProps>`

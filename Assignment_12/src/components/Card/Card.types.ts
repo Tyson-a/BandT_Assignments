@@ -1,16 +1,15 @@
 // Card.types.ts
 import React from 'react';
 
-export interface MyCardProps {
+export interface MyCardProps extends StyledCardProps {
   src: string;
   text?: string;
-  color?: string
+  color?: string;
   children?: React.ReactNode;
-  disabled?: boolean;
-  backgroundColor?: string;
 }
 
 export interface StyledCardProps {
   disabled?: boolean;
   backgroundColor?: string;
+  alwaysShowText?: boolean;
 }

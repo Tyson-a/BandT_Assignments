@@ -24,6 +24,12 @@ const meta: Meta<typeof Card> = {
       control: 'color',
       description: 'Text color of the card',
     },
+    alwaysShowText: {
+      control: 'boolean',
+      description: 'text box can be switch for mobile',
+    },
+
+    
   },
 };
 
@@ -44,6 +50,15 @@ export const disabled: StoryObj<typeof Card> = {
     src: "./hero-card-complete.jpeg",
     text: " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     disabled: true,
+  },
+};
+
+export const Mobile: StoryObj<typeof Card> = {
+  args: {
+    src: "./hero-card-complete.jpeg",
+    text: " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    disabled: false,
+    alwaysShowText: true,
   },
 };
   
