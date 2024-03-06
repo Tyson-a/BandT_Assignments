@@ -41,7 +41,7 @@ const MyButton: React.FC<MyButtonProps> = ({
   onClick,
   disabled,
   backgroundColor = "#e74c3c", // Default value for backgroundColor
-  boxShadow = "0px 7px 2px #c0392b, 0px 8px 5px #000" // Default value for boxShadow
+  boxShadow = "2px 3px 6px #c0392b, 1px 7px 4px #000" // Default value for boxShadow
 }) => {
   return (
     <StyledButton
