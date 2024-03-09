@@ -6,4 +6,5 @@ export interface TableCellProps {
     stars?: number;
     starsHTML?: number;
     starsCSS?: number;
+    backgroundColor?: string;
   }
