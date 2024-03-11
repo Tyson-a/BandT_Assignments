@@ -16,7 +16,7 @@ RUN npm install
 RUN npm run build
 
 # Expose the port if your application listens on a specific port
-EXPOSE 5173
+EXPOSE 6006
 
 # Specify the command to run on container start with --host
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "storybook", "--", "--host", "0.0.0.0"]
