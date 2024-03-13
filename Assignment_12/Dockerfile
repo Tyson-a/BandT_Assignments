@@ -19,4 +19,4 @@ RUN npm run build
 EXPOSE 6006
 
 # Specify the command to run on container start with --host
-CMD ["npm", "run", "storybook", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
