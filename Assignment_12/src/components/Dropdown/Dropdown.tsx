@@ -1,5 +1,5 @@
 // Dropdown.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import DropdownContainer from './DropdownContainer/DropdownContainer';
@@ -8,8 +8,14 @@ import DropdownContent from './DropdownContent/DropdownContent';
 import DropdownItem from './DropdownItem/DropdownItem';
 import { DropdownProps } from './Dropdown.types';
 
-const Dropdown: React.FC<DropdownProps> = ({ disabled, backgroundColor, boxShadow }) => {
+const Dropdown: React.FC<DropdownProps> = ({ disabled, backgroundColor, boxShadow, initialVisibility }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (initialVisibility !== undefined) {
+      setIsVisible(initialVisibility);
+    }
+  }, [initialVisibility]); // React to changes in initialVisibility
 
   const toggleDropdown = () => {
     setIsVisible(!isVisible);

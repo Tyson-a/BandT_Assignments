@@ -32,6 +32,7 @@ export const Default: StoryObj<typeof LabelComponent> = {
     disabled: false,
     fontFamily: "Arial",
     text: "View Portfolio",
+    bold: true
   },
 };
 
@@ -42,13 +43,6 @@ export const disabled: StoryObj<typeof LabelComponent> = {
   },
 };
 
-export const disabled2: StoryObj<typeof LabelComponent> = {
-  args: {
-    disabled: false,
-    text: "Tyson's Portfolio",
-    bold: true
-  },
-};
 
 
 

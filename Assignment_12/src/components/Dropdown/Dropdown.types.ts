@@ -7,4 +7,5 @@ export interface DropdownProps {
   children?: React.ReactNode;
   disabled?: boolean;
   isVisible?: boolean;
+  initialVisibility?: boolean;
 }

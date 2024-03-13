@@ -20,6 +20,10 @@ const meta: Meta<typeof Dropdown> = {
       control: 'boolean',
       description: 'Disable dropdown',
     },
+    initialVisibility: {
+      control: 'boolean',
+      description: 'Open or closed',
+    },
   },
 };
 
@@ -38,5 +42,21 @@ export const disabled: StoryObj<typeof Dropdown> = {
     disabled: true,
   },
 };
+
+export const closed: StoryObj<typeof Dropdown> = {
+  args: {
+    disabled: true,
+    initialVisibility: false,
+  },
+};
+  
+
+export const open: StoryObj<typeof Dropdown> = {
+  args: {
+    disabled: true,
+    initialVisibility: true,
+  },
+};
+  
   
   
