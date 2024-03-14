@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface TableCellProps {
+export default interface TableCellProps {
     children?: React.ReactNode;
     disabled?: boolean;
     stars?: number;

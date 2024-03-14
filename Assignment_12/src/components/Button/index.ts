@@ -1,4 +1,3 @@
-// Button.ts
-import MyButton from './Button';
 
-export default MyButton;
+export { default as MyButtonComponent } from './Button';
+export type { default as MyButtonProps } from './Button.types';

@@ -1,7 +1,7 @@
 // Button.types.ts
 import React from 'react';
 
-export interface MyButtonProps {
+export default interface MyButtonProps {
   children: React.ReactNode;
   onClick: () => void;
   disabled?: boolean;

@@ -20,6 +20,10 @@ const meta: Meta<typeof TableRow> = {
       control: 'boolean',
       description: 'Disable TableRow',
     },
+    children: {
+      control: 'text',
+      description: 'Number of filled stars',
+    },
   },
 };
 

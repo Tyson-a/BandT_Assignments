@@ -4,7 +4,7 @@ import MyButton from './components/Button/Button';
 import TextComponent  from './components/Text/Text'
 import LabelComponent  from './components/Label/Label'
 import HeroImageComponent  from './components/HeroImage/HeroImage'
-import DropdownComponent  from './components/Dropdown/Dropdown'
+import DropdownComponent  from './components/Dropdown/DropdownItem'
 import MyCardComponent  from './components/Card/Card'
 import MyTableComponent  from './components/Table/table'
 

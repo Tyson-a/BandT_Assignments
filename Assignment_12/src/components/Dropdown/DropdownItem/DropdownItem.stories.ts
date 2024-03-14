@@ -20,6 +20,10 @@ const meta: Meta<typeof DropdownItem> = {
       control: 'boolean',
       description: 'Disable DropdownItem',
     },
+    children: {
+      control: 'string',
+      description: 'Makes the Item Appear',
+    },
   },
 };
 
@@ -30,6 +34,7 @@ export default meta;
 export const Default: StoryObj<typeof DropdownItem> = {
   args: {
     disabled: false,
+    children: "item"
   },
 };
 
@@ -37,6 +42,7 @@ export const Default: StoryObj<typeof DropdownItem> = {
 export const disabled: StoryObj<typeof DropdownItem> = {
   args: {
     disabled: true,
+    children: "item"
   },
 };
   

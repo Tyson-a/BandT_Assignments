@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Dropdown from './Dropdown.tsx';
+import Dropdown from './DropdownItem.tsx';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown', 

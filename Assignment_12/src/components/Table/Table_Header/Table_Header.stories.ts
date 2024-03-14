@@ -20,6 +20,10 @@ const meta: Meta<typeof TableHeader> = {
       control: 'boolean',
       description: 'Disable TableHeader',
     },
+    children: {
+      control: 'text',
+      description: 'Number of filled stars',
+    },
   },
 };
 
@@ -30,12 +34,14 @@ export default meta;
 export const Default: StoryObj<typeof TableHeader> = {
   args: {
     disabled: false,
+    children: 'Header'
   },
 };
 
 export const disabled: StoryObj<typeof TableHeader> = {
   args: {
     disabled: true,
+    children: 'Header'
   },
 };
   

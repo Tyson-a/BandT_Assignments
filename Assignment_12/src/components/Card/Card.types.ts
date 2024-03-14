@@ -1,7 +1,7 @@
 // Card.types.ts
 import React from 'react';
 
-export interface MyCardProps extends StyledCardProps {
+export default interface MyCardProps extends StyledCardProps {
   src: string;
   text?: string;
   color?: string;

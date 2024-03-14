@@ -20,6 +20,10 @@ const meta: Meta<typeof TableFooter> = {
       control: 'boolean',
       description: 'Disable dropdown',
     },
+    children: {
+      control: 'text',
+      description: 'Number of filled stars',
+    },
   },
 };
 
@@ -30,12 +34,14 @@ export default meta;
 export const Default: StoryObj<typeof TableFooter> = {
   args: {
     disabled: false,
+    children: 'Footer'
   },
 };
 
 export const disabled: StoryObj<typeof TableFooter> = {
   args: {
     disabled: true,
+    children: 'Footer'
   },
 };
   

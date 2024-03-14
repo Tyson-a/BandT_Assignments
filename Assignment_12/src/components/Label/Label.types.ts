@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 
 
-export interface LabelProps {
+export default interface LabelProps {
   htmlFor?: string;
   text: string;
   fontFamily?: string;

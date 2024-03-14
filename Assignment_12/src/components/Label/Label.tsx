@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { LabelProps } from './Label.types.ts';
+import  LabelProps  from './Label.types.ts';
 
 const LabelComponent: React.FC<LabelProps> = ({ htmlFor, text, bold, fontFamily, disabled, backgroundColor, fontSize }) => {
   const labelStyle: CSSProperties = {

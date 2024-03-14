@@ -1,9 +1,9 @@
 // DropdownContainer.js
 import React from 'react';
 import styled from 'styled-components';
-import { DropdownProps } from './DropdownContainer.types';
+import  DropdownContainerProps  from './DropdownContainer.types';
 
-const Container = styled.div<DropdownProps>`
+const Container = styled.div<DropdownContainerProps>`
   position: relative;
   background-color: ${({ disabled, backgroundColor }) => (disabled ? '#aaa' : backgroundColor || 'gray')};
   color: black;
@@ -18,7 +18,7 @@ const Container = styled.div<DropdownProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const DropdownContainer: React.FC<DropdownProps> = ({ children, disabled, backgroundColor, boxShadow }) => {
+const DropdownContainer: React.FC<DropdownContainerProps> = ({ children, disabled, backgroundColor, boxShadow }) => {
   return (
     <Container disabled={disabled} backgroundColor={backgroundColor} boxShadow={boxShadow}>
       {children}

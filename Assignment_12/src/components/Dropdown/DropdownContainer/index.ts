@@ -1,1 +1,4 @@
-export { default as MyDropdownComponent } from './DropdownContainer';
+export { default as MyDropdownContainerComponent } from './DropdownContainer';
+export type { default as MyDropdownContainerProps } from './DropdownContainer.types';
+
+

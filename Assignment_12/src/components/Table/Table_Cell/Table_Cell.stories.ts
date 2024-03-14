@@ -20,6 +20,14 @@ const meta: Meta<typeof TableCell> = {
       control: 'boolean',
       description: 'Disable TableCell',
     },
+    stars: {
+      control: { type: 'range', min: 0, max: 5, step: 1 },
+      description: 'Number of filled stars',
+    },
+    children: {
+      control: 'text',
+      description: 'Number of filled stars',
+    },
   },
 };
 
@@ -30,13 +38,13 @@ export default meta;
 export const Default: StoryObj<typeof TableCell> = {
   args: {
     disabled: false,
+    stars: 0,
   },
 };
 
-export const disabled: StoryObj<typeof TableCell> = {
+export const Disabled: StoryObj<typeof TableCell> = {
   args: {
     disabled: true,
+    stars: 0,
   },
 };
-  
-  

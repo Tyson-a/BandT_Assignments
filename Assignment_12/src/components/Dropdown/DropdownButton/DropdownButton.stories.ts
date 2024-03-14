@@ -23,6 +23,10 @@ const meta: Meta<typeof DropdownButton> = {
       control: 'boolean',
       description: 'Disable DropdownButton interaction',
     },
+    children: {
+      control: 'string',
+      description: 'Makes the Button Appear',
+    },
   },
 };
 
@@ -33,7 +37,8 @@ export default meta;
 export const Default: StoryObj<typeof DropdownButton> = {
   args: {
     disabled: false,
-    isVisible: true,
+    isVisible: false,
+    children: "☰",
 
   },
 };
@@ -42,6 +47,7 @@ export const disabled: StoryObj<typeof DropdownButton> = {
   args: {
     disabled: true,
     isVisible: true,
+    children: "X",
   },
 };
   

@@ -39,6 +39,10 @@ const meta: Meta<typeof Table> = {
       },
       description: 'Number of stars for CSS cell (0-5)',
     },
+    children: {
+      control: 'text',
+      description: 'Number of filled stars',
+    },
   },
 };
 
@@ -51,6 +55,8 @@ export const Default: StoryObj<typeof Table> = {
     starsHTML: 1,
     starsCSS: 2,
     disabled: false,
+    children: 'Header'
+    
   },
 };
 
@@ -59,6 +65,7 @@ export const disabled: StoryObj<typeof Table> = {
     starsHTML: 3,
     starsCSS: 4,
     disabled: true,
+    children: 'Header'
   },
 };
 

@@ -1,12 +1,12 @@
 // DropdownButton.js
 import React from 'react';
 import styled from 'styled-components';
-import { DropdownButtonProps } from './DropdownButton.types';
+import  DropdownButtonProps  from './DropdownButton.types';
 
 const Button = styled.button<DropdownButtonProps>`
   background-color: transparent;
   border: none;
-  color: ${({ disabled }) => (disabled ? '#888' : 'white')};
+  color: ${({ disabled }) => (disabled ? '#888' : 'black')};
   font-size: 16px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
