@@ -1,7 +1,7 @@
 // DropdownItem.js
 import React from 'react';
 import styled from 'styled-components';
-import { DropdownItemProps } from './DropdownItem.types';
+import  DropdownItemProps  from './DropdownItem.types';
 
 const Item = styled.div`
   padding: 10px;
@@ -13,7 +13,7 @@ const Item = styled.div`
 `;
 
 const DropdownItem: React.FC<DropdownItemProps> = ({ children }) => {
-  return <Item>{children}</Item>;
+  return <Item data-testid="DropdownItem">{children}</Item>;
 };
 
 export default DropdownItem;

@@ -6,7 +6,7 @@ import DropdownContainer from './DropdownContainer/DropdownContainer';
 import DropdownButton from './DropdownButton/DropdownButton';
 import DropdownContent from './DropdownContent/DropdownContent';
 import DropdownItem from './DropdownItem/DropdownItem';
-import DropdownItemProps  from './DropdownItem.types';
+import DropdownItemProps  from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxShadow, initialVisibility }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,13 +23,13 @@ const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxS
 
   return (
     <DropdownContainer disabled={disabled} backgroundColor={backgroundColor} boxShadow={boxShadow}>
-      <DropdownButton disabled={disabled} onClick={toggleDropdown} isVisible={isVisible}>
+      <DropdownButton data-testid="Dropdown" disabled={disabled} onClick={toggleDropdown} isVisible={isVisible}>
         <FontAwesomeIcon icon={isVisible ? faTimes : faBars} />
       </DropdownButton>
       <DropdownContent isVisible={isVisible}>
-        <DropdownItem>About Me</DropdownItem>
-        <DropdownItem>Skills</DropdownItem>
-        <DropdownItem>Portfolio</DropdownItem>
+        <DropdownItem data-testid="DropdownItem">About Me</DropdownItem>
+        <DropdownItem >Skills</DropdownItem>
+        <DropdownItem >Portfolio</DropdownItem>
       </DropdownContent>
     </DropdownContainer>
   );

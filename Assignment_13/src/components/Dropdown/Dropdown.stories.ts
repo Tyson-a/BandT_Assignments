@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Dropdown from './DropdownItem.tsx';
+import Dropdown from './Dropdown.tsx';
+
+import  { userEvent, within, screen} from '@storybook/test';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown', 
@@ -35,6 +37,16 @@ export const Default: StoryObj<typeof Dropdown> = {
   args: {
     disabled: false,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const dropdownItems = screen.getAllByTestId('DropdownItem');
+
+    await userEvent.click(canvas.getByTestId('Dropdown'));
+    dropdownItems.forEach(async (item) => {
+
+      await userEvent.hover(item);
+    });
+  }
 };
 
 export const disabled: StoryObj<typeof Dropdown> = {

@@ -1,7 +1,7 @@
 // Card.types.ts
 import React from 'react';
 
-export interface DropdownItemProps {
+export default interface DropdownItemProps {
   backgroundColor?: string;
   boxShadow?: string;
   children?: React.ReactNode;
