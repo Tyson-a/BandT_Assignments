@@ -23,7 +23,7 @@ const Button = styled.button<DropdownButtonProps>`
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({ children, disabled, isVisible, onClick }) => {
   return (
-    <Button disabled={disabled} onClick={onClick} isVisible={isVisible}>
+    <Button data-testid="Dropdown" disabled={disabled} onClick={onClick} isVisible={isVisible}>
       {children}
     </Button>
     

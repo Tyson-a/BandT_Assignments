@@ -13,7 +13,7 @@ const Item = styled.div`
 `;
 
 const DropdownItem: React.FC<DropdownItemProps> = ({ children }) => {
-  return <Item>{children}</Item>;
+  return <Item data-testid="DropdownItem">{children}</Item>;
 };
 
 export default DropdownItem;

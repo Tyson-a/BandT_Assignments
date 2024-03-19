@@ -26,6 +26,7 @@ const DropdownContent: React.FC<DropdownContentProps> = ({
       backgroundColor={backgroundColor}
       isVisible={isVisible}
       isPositionedAbsolutely={isPositionedAbsolutely}
+
     >
       {children}
     </Content>
