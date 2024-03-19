@@ -6,7 +6,7 @@ import DropdownContainer from './DropdownContainer/DropdownContainer';
 import DropdownButton from './DropdownButton/DropdownButton';
 import DropdownContent from './DropdownContent/DropdownContent';
 import DropdownItem from './DropdownItem/DropdownItem';
-import DropdownItemProps  from './DropdownItem.types';
+import DropdownItemProps  from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxShadow, initialVisibility }) => {
   const [isVisible, setIsVisible] = useState(false);
