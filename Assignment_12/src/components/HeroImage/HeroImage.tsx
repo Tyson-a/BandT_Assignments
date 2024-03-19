@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MyButton from '../Button';
-import { HeroImageProps } from './HeroImage.types';
+import  { MyButtonComponent } from '../Button';
+import  HeroImageProps  from './HeroImage.types';
 import { MyRadioButtonComponent } from '../RadioButton';
 import { MyLabelComponent } from '../Label';
 import { MyNavBarComponent } from '../NavBar';
@@ -68,22 +68,22 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
           <MyLabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />
           <MyLabelComponent htmlFor="websites" text="I make websites" disabled={disabled}  fontSize='25px'/>
           <ButtonContainer>
-            <MyButton
+            <MyButtonComponent
               onClick={() => console.log("Button clicked")}
               backgroundColor="black"
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >
               <MyLabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
-            </MyButton>
-            <MyButton
+            </MyButtonComponent>
+            <MyButtonComponent
               onClick={() => console.log("Button clicked")}
               backgroundColor="black"
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >
               <MyLabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
-            </MyButton>
+            </MyButtonComponent>
           </ButtonContainer>
         </ContentWrap>        
       </CardContent>

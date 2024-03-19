@@ -1,7 +1,7 @@
 // MyButton.tsx
 import React from 'react';
 import styled from 'styled-components';
-import { MyButtonProps } from './Button.types';
+import  MyButtonProps  from './Button.types';
 
 const StyledButton = styled.button<{ disabled?: boolean; backgroundColor: string; boxShadow: string }>`
   background: ${({ backgroundColor }) => backgroundColor};
