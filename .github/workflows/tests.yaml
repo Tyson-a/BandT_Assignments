@@ -5,11 +5,17 @@ on:
     
   
 jobs:
+build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build Project
+      run: make build
+      working-directory: ./Assignment13
   test:
     name: Run test suite
-    runs-on: ubuntu-latest
     env:
-      COMPOSE_FILE: Assignment_13/Dockerfile.ci
+      COMPOSE_FILE: ./Dockerfile.ci
 
     steps:
       - name: Checkout code
