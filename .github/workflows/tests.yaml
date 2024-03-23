@@ -4,18 +4,11 @@ on:
   push:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Project
-        run: make build
-        working-directory: ./Assignment_13
-
 
   test:
     needs: build
     runs-on: ubuntu-latest
+    working-directory: ./Assignment_13
     env:
       COMPOSE_FILE: ./Dockerfile.ci
     steps:
