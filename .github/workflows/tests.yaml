@@ -2,21 +2,21 @@ name: Run Tests
 
 on:
   push:
-    
-  
+
 jobs:
-build:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Build Project
-      run: make build
-      working-directory: ./Assignment13
-  test:
-    name: Run test suite
-    env:
-      COMPOSE_FILE: ./Dockerfile.ci
+      - uses: actions/checkout@v4
+      - name: Build Project
+        run: make build
+        working-directory: ./Assignment13
 
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: ./Assignment13/Dockerfile.ci
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
