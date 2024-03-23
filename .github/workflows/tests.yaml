@@ -17,7 +17,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     env:
-      COMPOSE_FILE: ./Assignment13/Dockerfile.ci
+      COMPOSE_FILE: ./Dockerfile.ci
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
