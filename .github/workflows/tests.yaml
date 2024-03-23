@@ -4,19 +4,17 @@ on:
   push:
 
 jobs:
-
   test:
-    needs: build
     runs-on: ubuntu-latest
-    working-directory: ./Assignment_13
     env:
-      COMPOSE_FILE: ./Dockerfile.ci
+      COMPOSE_FILE: ./Assignment_13/Dockerfile.ci
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build docker images
         run: docker build -t main -f $COMPOSE_FILE .
+        working-directory: ./Assignment_13
 
       - name: Run tests
         run: docker run main
