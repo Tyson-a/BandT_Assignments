@@ -1,10 +1,10 @@
-// MyButton.tsx
 import React from 'react';
 import styled from 'styled-components';
-import  MyButtonProps  from './Button.types';
+import { MyButtonProps, StyleProps } from './Button.types';
 
-const StyledButton = styled.button<{ disabled?: boolean; backgroundColor: string; boxShadow: string }>`
-  background: ${({ backgroundColor }) => backgroundColor};
+// Adjust StyledButton to use direct style props instead of nesting them under styleProps
+const StyledButton = styled.button<Omit<MyButtonProps, 'backgroundColor' | 'boxShadow'> & StyleProps>`
+  background: ${({ backgroundcolor }) => backgroundcolor || '#e74c3c'};
   color: #fff;
   border: none;
   padding: 1em;
@@ -14,40 +14,36 @@ const StyledButton = styled.button<{ disabled?: boolean; backgroundColor: string
   border-radius: 5px;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   letter-spacing: 1px;
-  box-shadow: ${({ boxShadow }) => boxShadow};
-
+  box-shadow: ${({ boxShadow }) => boxShadow || '2px 3px 6px #c0392b, -1px -2px 4px #000'};
+  
   &:hover {
-    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+    opacity: 0.8;
   }
-
+  
   &:active {
-    /* Apply the :active styles only when the button is not disabled */
-    ${({ disabled }) =>
-      disabled
-        ? ''
-        : `
-          top: 4px;
-          box-shadow: green 0px 3px 2px, #000 0px 3px 5px;
-        `}
+    ${({ disabled, boxShadow }) =>
+      disabled ? '' : `top: 2px; box-shadow: ${boxShadow || 'none'};`}
   }
-
+  
   &.disabled {
     cursor: not-allowed;
   }
 `;
 
-const MyButton: React.FC<MyButtonProps> = ({
+
+// MyButton component now takes MyButtonProps and StyleProps directly without nesting
+const MyButton: React.FC<MyButtonProps & StyleProps> = ({
   children,
   onClick,
-  disabled,
-  backgroundColor = "#e74c3c", // Default value for backgroundColor
-  boxShadow = "2px 3px 6px #c0392b, 1px 7px 4px #000" // Default value for boxShadow
+  disabled = false,
+  backgroundcolor, // Default values are now handled within StyledButton
+  boxShadow
 }) => {
   return (
     <StyledButton
       disabled={disabled}
-      onClick={disabled ? undefined : onClick} // Disable onClick when the button is disabled
-      backgroundColor={backgroundColor}
+      onClick={onClick}
+      backgroundcolor={backgroundcolor}
       boxShadow={boxShadow}
       className={disabled ? 'disabled' : ''}
     >

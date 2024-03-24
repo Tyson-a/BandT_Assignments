@@ -1,6 +1,6 @@
 # Web Application Dockerization
 
-This file contains a Dockerfile for containerizing a web application and running it on localhost:8083.
+This file contains a Dockerfile for containerizing a web application and running it on localhost:8018.
 
 ## Build and Run
 
@@ -13,7 +13,7 @@ This file contains a Dockerfile for containerizing a web application and running
 
 2. Navigate to the project directory:
 
-    cd Assignment_12
+    cd Assignment_13
 
 
 3. Build the Docker image:
@@ -25,9 +25,9 @@ This file contains a Dockerfile for containerizing a web application and running
 4. Run the Docker container:
 
     
-    docker run -p 8083:5173 ui_garden 
+    docker run -p 8018:6006 ui_garden 
 
 
-5. Open your web browser and go to [http://127.0.0.1:8083](http://127.0.0.1:8083) to access the web application.
+5. Open your web browser and go to [http://127.0.0.1:8018](http://127.0.0.1:8018) to access the web application.
 
  

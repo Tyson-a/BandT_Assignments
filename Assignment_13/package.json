@@ -16,11 +16,12 @@
     "ci:test": "npm run storybook & sleep 30 && npm run test"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.(t|j)sx?$": "babel-jest"
     },
     "moduleNameMapper": {
-      ".(css|less|scss)$": "identity-obj-proxy"
+      "\\.(css|less|scss)$": "identity-obj-proxy"
     },
     "modulePathIgnorePatterns": [
       "node_modules",
@@ -65,6 +66,8 @@
     "eslint-plugin-storybook": "^0.8.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.0.0",
     "storybook": "^7.6.17",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",

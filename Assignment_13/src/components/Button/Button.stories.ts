@@ -16,7 +16,7 @@ const meta: Meta<typeof MyButton> = {
       control: 'text',
       description: 'Button text',
     },
-    backgroundColor: {
+    backgroundcolor: {
       control: 'color',
       description: 'Background color of the button',
     },

@@ -1,10 +1,15 @@
 // Button.types.ts
 import React from 'react';
 
-export default interface MyButtonProps {
-  children: React.ReactNode;
-  onClick: () => void;
+// Assuming Button.types.ts looks something like this
+export  interface MyButtonProps {
+  children?: React.ReactNode; // Making children optional if it was not already
+  onClick?: () => void;
   disabled?: boolean;
-  backgroundColor?: string;
+  // No need for backgroundColor and boxShadow here if they are passed via styleProps
+}
+
+export interface StyleProps {
+  backgroundcolor?: string;
   boxShadow?: string;
 }
