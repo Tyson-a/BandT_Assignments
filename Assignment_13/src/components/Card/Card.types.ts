@@ -10,6 +10,6 @@ export interface MyCardProps extends StyledCardProps {
 
 export interface StyledCardProps {
   disabled?: boolean;
-  backgroundColor?: string;
+  backgroundcolor?: string;
   alwaysShowText?: boolean;
 }

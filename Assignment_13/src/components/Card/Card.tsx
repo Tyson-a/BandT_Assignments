@@ -1,8 +1,9 @@
-// Card.tsx
 import React from 'react';
 import styled from 'styled-components';
 import { MyCardProps, StyledCardProps } from './Card.types';
 
+// Note: It's generally recommended to use camelCase for prop names in React, including styled-components.
+// This helps maintain consistency with React's naming conventions.
 const StyledCard = styled.div<StyledCardProps>`
   position: relative;
   width: 200px;
@@ -11,6 +12,9 @@ const StyledCard = styled.div<StyledCardProps>`
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: ${({ backgroundcolor, disabled }) =>
+    disabled ? 'rgba(169, 169, 169, 0.7)' : backgroundcolor || 'transparent'};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     transform: ${({ disabled }) => (disabled ? 'none' : 'scale(1.05)')};
@@ -29,31 +33,31 @@ const StyledCard = styled.div<StyledCardProps>`
     bottom: 0;
     left: 0;
     right: 0;
-    background: ${({ disabled, backgroundColor }) =>
-      disabled ? 'rgba(0, 0, 0, 0.5)' : backgroundColor || 'rgba(0, 0, 0, 0.85)'};
+    background: ${({ backgroundcolor }) => backgroundcolor || 'rgba(0, 0, 0, 0.85)'};
     color: ${({ color }) => color || '#fff'};
     padding: 15px;
     text-align: center;
-    opacity: ${({ alwaysShowText }) => (alwaysShowText ? 1 : 0)};
+    opacity: ${({ alwaysShowText }) => (alwaysShowText ? 1 : 0)}; /* Controlled by alwaysShowText prop */
     transition: opacity 0.3s ease-in-out;
     overflow: auto;
   }
 
   &:hover .cardText {
-    opacity: 1;
+    opacity: 1; /* Always show text on hover */
   }
-
-
-  background-color: ${({ backgroundColor, disabled }) =>
-    disabled ? 'rgba(169, 169, 169, 0.7)' : backgroundColor || 'transparent'};
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const Card: React.FC<MyCardProps> = ({ src, text, disabled, backgroundColor, color, alwaysShowText }) => {
+const Card: React.FC<MyCardProps> = ({ src, text, disabled, backgroundcolor, color, alwaysShowText }) => {
   return (
-    <StyledCard disabled={disabled} backgroundColor={backgroundColor} color={color} alwaysShowText={alwaysShowText}>
+    <StyledCard 
+      disabled={disabled} 
+      backgroundcolor={backgroundcolor} 
+      color={color} 
+      alwaysShowText={alwaysShowText}
+    >
       <img src={src} alt="Card Image" />
-      {!disabled && <div className="cardText">{text}</div>}
+      {/* The text is always rendered but its visibility is controlled via CSS */}
+      <div className="cardText">{text}</div>
     </StyledCard>
   );
 };
