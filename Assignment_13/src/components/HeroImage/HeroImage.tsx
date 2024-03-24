@@ -70,7 +70,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
           <ButtonContainer>
             <MyButtonComponent
               onClick={() => console.log("Button clicked")}
-              backgroundColor="black"
+              backgroundcolor="black"
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >
@@ -78,7 +78,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
             </MyButtonComponent>
             <MyButtonComponent
               onClick={() => console.log("Button clicked")}
-              backgroundColor="black"
+              backgroundcolor="black"
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >

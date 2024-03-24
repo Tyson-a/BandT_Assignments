@@ -6,7 +6,7 @@ import  DropdownButtonProps  from './DropdownButton.types';
 const Button = styled.button<DropdownButtonProps>`
   background-color: transparent;
   border: none;
-  color: ${({ disabled }) => (disabled ? '#888' : 'black')};
+  color: ${({ disabled }) => (disabled ? '#888' : 'purple')};
   font-size: 16px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
@@ -23,7 +23,7 @@ const Button = styled.button<DropdownButtonProps>`
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({ children, disabled, isVisible, onClick }) => {
   return (
-    <Button data-testid="Dropdown" disabled={disabled} onClick={onClick} isVisible={isVisible}>
+    <Button data-testid="Dropdown" disabled={disabled} onClick={onClick} isVisible={isVisible} aria-expanded={isVisible}>
       {children}
     </Button>
     

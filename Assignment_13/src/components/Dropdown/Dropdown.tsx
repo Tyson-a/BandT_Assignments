@@ -9,7 +9,8 @@ import DropdownItem from './DropdownItem/DropdownItem';
 import DropdownItemProps  from './Dropdown.types';
 
 const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxShadow, initialVisibility }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(initialVisibility || false);
+
 
   useEffect(() => {
     if (initialVisibility !== undefined) {
@@ -26,11 +27,13 @@ const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxS
       <DropdownButton data-testid="Dropdown" disabled={disabled} onClick={toggleDropdown} isVisible={isVisible}>
         <FontAwesomeIcon icon={isVisible ? faTimes : faBars} />
       </DropdownButton>
-      <DropdownContent isVisible={isVisible}>
-        <DropdownItem data-testid="DropdownItem">About Me</DropdownItem>
-        <DropdownItem >Skills</DropdownItem>
-        <DropdownItem >Portfolio</DropdownItem>
-      </DropdownContent>
+      {isVisible && ( // Render dropdown content only if isVisible is true
+        <DropdownContent isVisible={isVisible}>
+          <DropdownItem data-testid="DropdownItem">About Me</DropdownItem>
+          <DropdownItem >Skills</DropdownItem>
+          <DropdownItem >Portfolio</DropdownItem>
+        </DropdownContent>
+      )}
     </DropdownContainer>
   );
 };
