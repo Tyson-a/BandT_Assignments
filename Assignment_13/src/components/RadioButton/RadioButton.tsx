@@ -1,13 +1,16 @@
-import React, { useState} from 'react';
+import React, { useState, DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import RadioButtonProps from './RadioButton.types';
 
-
+// Define a new type for your styled input that includes the custom 'circlesize' prop
+interface StyledInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  circlesize: string;
+}
 
 const StyledRadioButtonWrapper = styled.div<RadioButtonProps>`
   display: flex;
   margin-bottom: 10px;
-  background-color: ${(props) => props.backgroundColor || 'tranlucent'};
+  background-color: ${(props) => props.backgroundcolor || 'transparent'};
   padding: 10px;
   border-radius: 5px;
 `;
@@ -16,26 +19,35 @@ const StyledLabel = styled.label`
   margin-right: 10px;
 `;
 
-const StyledInput = styled.input<{ circleSize: string }>`
-  width: ${(props) => props.circleSize};
-  height: ${(props) => props.circleSize};
+// Correctly apply types for the styled input, using StyledInputProps
+const StyledInput = styled.input.attrs<StyledInputProps>(props => ({
+  'aria-label': props['aria-label'], // Include other props as needed
+}))<StyledInputProps>`
+  width: ${(props) => props.circlesize};
+  height: ${(props) => props.circlesize};
 `;
 
-const RadioButton: React.FC<RadioButtonProps> = ({ options = [], onChange, disabled = false, backgroundColor = 'tranlucent', circleSize = '20px' }) => {
+const RadioButton: React.FC<RadioButtonProps> = ({
+  options = [],
+  onChange,
+  disabled = false,
+  backgroundcolor = 'transparent',
+  circlesize = '20px'
+}) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSelectedOption(value);
-  
+
     if (onChange) {
       onChange(value);
     }
   };
 
   return (
-    <StyledRadioButtonWrapper backgroundColor={backgroundColor}>
-      {options?.map((option, index) => (
+    <StyledRadioButtonWrapper backgroundcolor={backgroundcolor}>
+      {options.map((option, index) => (
         <StyledLabel key={index}>
           <StyledInput
             type="radio"
@@ -43,8 +55,10 @@ const RadioButton: React.FC<RadioButtonProps> = ({ options = [], onChange, disab
             checked={selectedOption === option}
             onChange={handleOptionChange}
             disabled={disabled}
-            circleSize={circleSize}
+            circlesize={circlesize}
+            aria-label={option} // Example of passing a standard attribute through attrs
           />
+          {option}
         </StyledLabel>
       ))}
     </StyledRadioButtonWrapper>

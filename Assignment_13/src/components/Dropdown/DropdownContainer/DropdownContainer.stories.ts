@@ -12,7 +12,7 @@ const meta: Meta<typeof DropdownContainer> = {
   tags: ['autodocs'],
   argTypes: {
     // Define the controls for your component's properties
-    backgroundColor: {
+    backgroundcolor: {
       control: 'color',
       description: 'Background color of the DropdownContainer',
     },

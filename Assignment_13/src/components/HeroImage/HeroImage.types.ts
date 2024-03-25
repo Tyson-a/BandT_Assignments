@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default interface HeroImageProps {
-  backgroundColor?: string;
+  backgroundcolor?: string;
   children?: React.ReactNode;
   disabled?: boolean;
   isVisible?: boolean;

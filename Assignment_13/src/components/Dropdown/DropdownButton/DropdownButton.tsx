@@ -22,11 +22,19 @@ const Button = styled.button<DropdownButtonProps>`
 `;
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({ children, disabled, isVisible, onClick }) => {
+  // Props specifically intended for the Button component
+  const buttonProps = {
+    disabled,
+    'data-testid': "Dropdown",
+    'aria-expanded': isVisible,
+    onClick,
+
+  };
+
   return (
-    <Button data-testid="Dropdown" disabled={disabled} onClick={onClick} isVisible={isVisible} aria-expanded={isVisible}>
+    <Button {...buttonProps}>
       {children}
     </Button>
-    
   );
 };
 

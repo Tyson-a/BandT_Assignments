@@ -38,13 +38,15 @@ const StyledTable = styled.table<TableProps>`
   border-spacing: 0;
 `;
 
-const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, starsCSS = 0 }) => {
+const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, starsCSS = 0,  ...rest}) => {
   return (
-    <StyledTable disabled={disabled} backgroundColor={backgroundColor}>
+    <StyledTable  disabled={disabled} {...rest} style={{ backgroundColor }}  data-testid="table">
       <TableHeader>
-        <th>Name</th>
-        <th>Skill Level</th>
-      </TableHeader>
+  <tr>
+    <th>Name</th>
+    <th>Skill Level</th>
+  </tr>
+</TableHeader>
       <tbody>
         <TableRow>
           <TableCell>HTML</TableCell>
@@ -55,7 +57,12 @@ const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, 
           <TableCell stars={starsCSS} disabled={disabled} /> 
         </TableRow>
       </tbody>
-      <TableFooter>Table Footer</TableFooter>
+      <TableFooter>
+  <tr>
+    <td>Table Footer</td>
+  </tr>
+</TableFooter>
+
     </StyledTable>
   );
 };

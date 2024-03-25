@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default interface DropdownContainerProps {
-  backgroundColor?: string;
+  backgroundcolor?: string;
   boxShadow?: string;
   children?: React.ReactNode;
   disabled?: boolean;

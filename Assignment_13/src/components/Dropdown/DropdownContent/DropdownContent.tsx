@@ -1,9 +1,11 @@
-// DropdownContent.js
 import React from 'react';
 import styled from 'styled-components';
-import  DropdownContentProps from './DropdownContent.types';
+import DropdownContentProps from './DropdownContent.types';
 
-const Content = styled.div<DropdownContentProps>`
+// Use shouldForwardProp to filter out custom props without defaultValidatorFn
+const Content = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['isVisible', 'isPositionedAbsolutely'].includes(prop),
+})<DropdownContentProps>`
   display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
   position: ${({ isPositionedAbsolutely }) => (isPositionedAbsolutely ? 'absolute' : 'static')};
   top: ${({ isPositionedAbsolutely }) => (isPositionedAbsolutely ? 'calc(100% + 5px)' : 'unset')};
@@ -19,7 +21,7 @@ const DropdownContent: React.FC<DropdownContentProps> = ({
   backgroundColor,
   children,
   isVisible,
-  isPositionedAbsolutely = true, // Set default to true here
+  isPositionedAbsolutely = true,
 }) => {
   return (
     <Content

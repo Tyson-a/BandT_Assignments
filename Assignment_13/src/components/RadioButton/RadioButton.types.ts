@@ -4,8 +4,8 @@ export default interface RadioButtonProps {
     options?: string[];
     onChange?: (selectedOption: string) => void;
     disabled?: boolean;
-    backgroundColor?: string;
+    backgroundcolor?: string;
     children?: React.ReactNode;
-    circleSize?: string;
+    circlesize?: string;
   }
 

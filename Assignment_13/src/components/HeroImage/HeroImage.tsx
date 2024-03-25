@@ -49,7 +49,7 @@ const RadioButtonsContainer = styled.div`
   padding: 20px; /* Increase padding to make it bigger */
 `;
 
-const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
+const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundcolor }) => {
   const [selectedPicture, setSelectedPicture] = useState('Banff');
 
   const handlePictureChange = (selectedOption: string) => {
@@ -60,7 +60,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
 
   return (
     <HeroImageContainer>
-      <MyNavBarComponent backgroundColor={backgroundColor} disabled={disabled} >
+      <MyNavBarComponent backgroundcolor={backgroundcolor} disabled={disabled} >
       </MyNavBarComponent>
       <CardImage src={`src/components/HeroImage/${selectedPicture}.jpg`} alt={selectedPicture} />
       <CardContent>
@@ -92,7 +92,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, backgroundColor }) => {
           options={pictureOptions}
           onChange={handlePictureChange}
           disabled={disabled}
-          circleSize='30px'
+          circlesize='30px'
         />
       </RadioButtonsContainer>
     </HeroImageContainer>

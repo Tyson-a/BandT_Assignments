@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownItemProps> = ({ disabled, backgroundColor, boxS
   };
 
   return (
-    <DropdownContainer disabled={disabled} backgroundColor={backgroundColor} boxShadow={boxShadow}>
+    <DropdownContainer disabled={disabled} backgroundcolor={backgroundColor} boxShadow={boxShadow}>
       <DropdownButton data-testid="Dropdown" disabled={disabled} onClick={toggleDropdown} isVisible={isVisible}>
         <FontAwesomeIcon icon={isVisible ? faTimes : faBars} />
       </DropdownButton>

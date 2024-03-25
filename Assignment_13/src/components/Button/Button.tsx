@@ -36,15 +36,16 @@ const MyButton: React.FC<MyButtonProps & StyleProps> = ({
   children,
   onClick,
   disabled = false,
-  backgroundcolor, // Default values are now handled within StyledButton
-  boxShadow
+  backgroundcolor,
+  boxShadow, // Keep boxShadow here
+  ...rest // Filter out boxShadow from rest of the props
 }) => {
   return (
     <StyledButton
       disabled={disabled}
       onClick={onClick}
       backgroundcolor={backgroundcolor}
-      boxShadow={boxShadow}
+      {...rest} // Spread the rest of the props without boxShadow
       className={disabled ? 'disabled' : ''}
     >
       {children}
