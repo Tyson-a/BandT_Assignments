@@ -26,7 +26,7 @@ const DropdownContainer: React.FC<DropdownContainerProps> = ({
   ...rest // Filter out boxShadow from rest of the props
 }) => {
   return (
-    <Container disabled={disabled} backgroundcolor={backgroundcolor} {...rest}>
+    <Container data-testid="my-dropdown" disabled={disabled} backgroundcolor={backgroundcolor} {...rest}>
       {children}
     </Container>
   );

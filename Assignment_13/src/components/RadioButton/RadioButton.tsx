@@ -37,9 +37,12 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Prevent the callback from being called if the component is disabled
+    if (disabled) return;
+  
     const value = event.target.value;
     setSelectedOption(value);
-
+  
     if (onChange) {
       onChange(value);
     }

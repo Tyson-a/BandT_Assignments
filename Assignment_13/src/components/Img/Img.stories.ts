@@ -31,7 +31,7 @@ const meta: Meta<typeof Img> = {
       control: 'number',
       description: 'Quality of the image',
     },
-    backgroundColor: {
+    backgroundcolor: {
       control: 'color',
       description: 'Background color of the image',
     },
@@ -52,7 +52,7 @@ export const Default: StoryObj<typeof Img> = {
     width: '250px',
     height: '250px',
     quality: 75,
-    backgroundColor: '#FFFFFF',
+    backgroundcolor: '#FFFFFF',
     disabled: false,
   },
 };
@@ -65,7 +65,7 @@ export const Disabled: StoryObj<typeof Img> = {
     width: '250px',
     height: '250px',
     quality: 75,
-    backgroundColor: '#FFFFFF',
+    backgroundcolor: '#FFFFFF',
     disabled: true,
   },
 };
@@ -77,7 +77,7 @@ export const HeroImg: StoryObj<typeof Img> = {
     width: '1000px',
     height: '350px',
     quality: 100,
-    backgroundColor: '#FFFFFF',
+    backgroundcolor: '#FFFFFF',
   },
 };
 
@@ -88,6 +88,6 @@ export const gridImg: StoryObj<typeof Img> = {
     width: '250px',
     height: '250px',
     quality: 100,
-    backgroundColor: '#FFFFFF',
+    backgroundcolor: '#FFFFFF',
   },
 };

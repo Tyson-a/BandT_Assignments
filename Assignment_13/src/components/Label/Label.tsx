@@ -6,7 +6,7 @@ const LabelComponent: React.FC<LabelProps> = ({ htmlFor, text, bold, fontFamily,
     fontWeight: bold ? 'bold' : 'normal',
     fontFamily: fontFamily || '',
     color: disabled ? 'gray' : '',
-    backgroundColor: disabled ? 'transparent' : backgroundColor || '',
+    backgroundColor: disabled ? 'transparent' : (backgroundColor || 'transparent'),
     fontSize: fontSize || 'inherit', // Set a default value or adjust as needed
   };
 
