@@ -5,6 +5,6 @@ export default interface ImgProps {
   width: string;
   height: string;
   quality?: number
-  backgroundColor: string;
-  disabled: boolean
+  backgroundcolor?: string;
+  disabled?: boolean
   }

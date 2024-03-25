@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Dropdown from './Dropdown.tsx';
 
-import  { userEvent, within, screen} from '@storybook/test';
+import  { userEvent, within} from '@storybook/test';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown', 
@@ -39,13 +39,16 @@ export const Default: StoryObj<typeof Dropdown> = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const dropdownItems = screen.getAllByTestId('DropdownItem');
-
+    
+    // Assuming `Dropdown` has a test ID to target for the click action.
     await userEvent.click(canvas.getByTestId('Dropdown'));
-    dropdownItems.forEach(async (item) => {
-
+    
+    // Wait a moment for dropdown items to be available after opening.
+    const dropdownItems = await canvas.findAllByTestId('DropdownItem', {}, {timeout: 1000});
+    
+    for (const item of dropdownItems) {
       await userEvent.hover(item);
-    });
+    }
   }
 };
 
