@@ -12,4 +12,5 @@ export interface StyledCardProps {
   disabled?: boolean;
   backgroundcolor?: string;
   alwaysShowText?: boolean;
+  ishovered?: boolean;
 }

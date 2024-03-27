@@ -14,8 +14,6 @@ describe('Table component', () => {
 
   it('applies correct styles in the disabled state', () => {
     render(<Table disabled={true} />);
-    // Since we don't have direct access to styles through `screen`, checking the class or inline styles
-    // You might need to add a data-testid attribute or use container queries if necessary
     const tableElement = screen.getByTestId('table'); // Assume you've added data-testid="table" to your table element
     expect(tableElement).toHaveStyle('opacity: 0.5');
     expect(tableElement).toHaveStyle('cursor: not-allowed');
@@ -27,9 +25,4 @@ describe('Table component', () => {
     const tableElement = screen.getByTestId('table'); // Assuming you have a data-testid="table"
     expect(tableElement).toHaveStyle(`background-color: ${customBgColor}`);
   });
-
-  // Assuming there's no specific prop for opacity adjustment based on your correction
-  // Adjust or remove tests based on actual implemented props and functionalities of your Table component
-
-  // Add any additional tests specific to your component's functionality
 });

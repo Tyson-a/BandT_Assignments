@@ -11,9 +11,6 @@ describe('TextComponent', () => {
 
     // Check if it renders the text content correctly
     expect(textElement).toBeInTheDocument();
-
-    // Optionally, verify default styles
-    // Note: Direct style checks might depend on how your styled-components are set up with jest
     expect(textElement).toHaveStyle('font-weight: normal');
     expect(textElement).toHaveStyle('color: inherit');
     expect(textElement).toHaveStyle('background-color: transparent');
@@ -29,6 +26,4 @@ describe('TextComponent', () => {
     expect(textElement).toHaveStyle('color: gray');
     expect(textElement).toHaveStyle('background-color: transparent');
   });
-
-  // Add more tests here as needed for other props like `fontFamily`, `color`, etc.
 });

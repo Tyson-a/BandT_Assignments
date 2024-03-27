@@ -12,25 +12,16 @@ test('Card displays with specified background color and hides text by default', 
   test('Card scales up on hover if not disabled', () => {
     const { container } = render(<Card src="image.jpg" text="Hover Text" />);
     fireEvent.mouseOver(container.firstChild!);
-    // This assumes you add a class or a direct style change on hover
-    // Example: expect(container.firstChild).toHaveClass('hovered');
-    // Since CSS effects can't be directly tested here, focus on logical changes
   });
   
   test('Card shows disabled styles and applies grayscale to the image when disabled', () => {
     render(<Card src="image.jpg" text="Disabled Text" disabled={true} />);
-    const image = screen.getByAltText('Card Image'); // Assuming you have alt text 'Card Image' on your img element
+    const image = screen.getByAltText('Card Image'); 
     expect(image).toHaveStyle('filter: grayscale(100%)');
   });
   
-  test('Card text is always visible on small screens (simulating mobile devices)', () => {
-    // Simulate small screen size if necessary
-    // window.innerWidth = 360;
-    // window.dispatchEvent(new Event('resize'));
-  
+  test('Card text is always visible on small screens', () => {
     const { getByText } = render(<Card src="image.jpg" text="Mobile Text" />);
     expect(getByText('Mobile Text')).toBeVisible();
-    // Cleanup if you changed the viewport size
-    // window.innerWidth = originalWidth;
   });
   

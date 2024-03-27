@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { MyCardProps, StyledCardProps } from './Card.types';
 
-// Note: It's generally recommended to use camelCase for prop names in React, including styled-components.
-// This helps maintain consistency with React's naming conventions.
 const StyledCard = styled.div<StyledCardProps>`
   position: relative;
   width: 200px;
@@ -37,13 +35,13 @@ const StyledCard = styled.div<StyledCardProps>`
     color: ${({ color }) => color || '#fff'};
     padding: 15px;
     text-align: center;
-    opacity: ${({ alwaysShowText }) => (alwaysShowText ? 1 : 0)}; /* Controlled by alwaysShowText prop */
+    opacity: ${({ alwaysShowText }) => (alwaysShowText ? 1 : 0)};
     transition: opacity 0.3s ease-in-out;
     overflow: auto;
   }
 
   &:hover .cardText {
-    opacity: 1; /* Always show text on hover */
+    opacity: 1;
   }
 `;
 
@@ -56,7 +54,6 @@ const Card: React.FC<MyCardProps> = ({ src, text, disabled, backgroundcolor, col
       alwaysShowText={alwaysShowText}
     >
       <img src={src} alt="Card Image" />
-      {/* The text is always rendered but its visibility is controlled via CSS */}
       <div className="cardText">{text}</div>
     </StyledCard>
   );

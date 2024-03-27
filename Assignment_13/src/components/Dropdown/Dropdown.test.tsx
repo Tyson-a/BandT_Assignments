@@ -35,8 +35,7 @@ test('Dropdown is initially closed with a bars icon', () => {
     expect(toggleButton).toHaveStyle('cursor: not-allowed');
   
     await userEvent.click(toggleButton);
-    // The dropdown should not open due to being disabled
-    // Use this if the element is conditionally rendered
+    
 expect(screen.queryByText('About Me')).not.toBeInTheDocument();
 
   });
