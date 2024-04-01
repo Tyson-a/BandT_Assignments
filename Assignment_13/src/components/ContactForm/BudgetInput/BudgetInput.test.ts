@@ -1,11 +1,10 @@
-// This import statement is necessary to run the tests but ensure it's the only import
 import { validateBudgetInput } from './BudgetInput.lib.ts';
 
 describe('validateBudgetInput', () => {
   it('should return true for valid numbers within range', () => {
     expect(validateBudgetInput(100)).toBe(true);
     expect(validateBudgetInput(5000)).toBe(true);
-    expect(validateBudgetInput(0)).toBe(true); // Assuming 0 is a valid input
+    expect(validateBudgetInput(0)).toBe(true); 
   });
 
   it('should return false for numbers outside of range', () => {

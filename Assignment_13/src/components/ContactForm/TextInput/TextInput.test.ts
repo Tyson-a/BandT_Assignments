@@ -5,11 +5,11 @@ import { isValidText } from './TextInput.lib';
 describe('TextInput Validation', () => {
   test('should return true for valid inputs', () => {
     expect(isValidText('hello', 1)).toBe(true);
-    expect(isValidText('world', 4)).toBe(true); // "world" is longer than the 4 chars minimum
+    expect(isValidText('world', 4)).toBe(true); 
   });
 
   test('should return false for invalid inputs', () => {
-    expect(isValidText('', 1)).toBe(false); // Empty string is invalid
-    expect(isValidText('abc', 4)).toBe(false); // "abc" does not meet the 4 chars minimum
+    expect(isValidText('', 1)).toBe(false); 
+    expect(isValidText('abc', 4)).toBe(false); 
   });
 });
