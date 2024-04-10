@@ -1,0 +1,21 @@
+
+FROM node:21.7-bullseye
+
+WORKDIR /app
+
+# Set the PATH to include node_modules binaries
+ENV PATH="./node_modules/.bin:$PATH"
+
+# Copy the application files to the container
+COPY package*.json .
+
+# Install dependencies
+RUN npm ci
+
+# Build your application
+RUN npx playwright install --with-deps chromium
+
+COPY . .
+# Expose the port if your application listens on a specific port
+# Specify the command to run on container start with --host
+CMD ["npm", "run", "ci:test"]
