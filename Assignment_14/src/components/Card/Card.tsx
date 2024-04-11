@@ -9,13 +9,20 @@ const StyledCard = styled.div<StyledCardProps>`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &:nth-child(odd) {
+    margin-bottom: 325px; // This will push the odd cards down
+  }
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   background-color: ${({ backgroundcolor, disabled }) =>
     disabled ? 'rgba(169, 169, 169, 0.7)' : backgroundcolor || 'transparent'};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
+  transform: ${({ staggered }) => staggered ? 'translateY(100%)' : 'none'};
+
   &:hover {
-    transform: ${({ disabled }) => (disabled ? 'none' : 'scale(1.05)')};
+    // Include the staggered transform if staggered is true, and apply scale if not disabled
+    transform: ${({ staggered, disabled }) => 
+      `${staggered ? 'translateY(100%)' : ''} ${!disabled ? 'scale(1.05)' : ''}`};
   }
 
   img {
@@ -43,11 +50,12 @@ const StyledCard = styled.div<StyledCardProps>`
   &:hover .cardText {
     opacity: 1;
   }
+  
 `;
 
-const Card: React.FC<MyCardProps> = ({ src, text, disabled, backgroundcolor, color, alwaysShowText }) => {
+const Card: React.FC<MyCardProps & StyledCardProps> = ({ src, text, disabled, backgroundcolor, color, alwaysShowText, ...props }) => {
   return (
-    <StyledCard 
+    <StyledCard {...props}
       disabled={disabled} 
       backgroundcolor={backgroundcolor} 
       color={color} 

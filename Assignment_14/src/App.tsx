@@ -1,35 +1,21 @@
-import { useState } from 'react';
+
 import './App.css';
-import MyButton from './components/Button/Button';
-import TextComponent  from './components/Text/Text'
-import LabelComponent  from './components/Label/Label'
-import HeroImageComponent  from './components/HeroImage/HeroImage'
-import DropdownComponent  from './components/Dropdown/DropdownItem'
-import MyCardComponent  from './components/Card/Card'
-import MyTableComponent  from './components/Table/table'
-
+import HeroImageComponent from './components/HeroImage/HeroImage';
+import AboutMeComponent from './components/AboutMe/AboutMe'; // Make sure to create this component
+import MyProjectsComponent from './components/MyProjects/MyProjects'; // And this one
+import NavBarComponent from './components/NavBar/NavBar';// And this one
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <MyButton onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </MyButton>
-
-        <LabelComponent text= " Title " fontFamily='Comic'  bold />
-        <TextComponent text = "Hello world" fontFamily='arial' />
-        <HeroImageComponent/>
-        <DropdownComponent />
-        <MyCardComponent src = "./hero-card-complete.jpeg" text='this is a test to see what my card component can do'/>
-        <MyTableComponent starsCSS={5} starsHTML={2}/>
-
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR updates.
-        </p>
-      </div>
+      <h1>Welcome to My Portfolio</h1>
+      <NavBarComponent>
+      </NavBarComponent>
+      <HeroImageComponent/>
+      <AboutMeComponent
+       labelText='Who Am I' 
+       aboutText={`As a passionate full-stack web development student at Red River College Polytechnic, I immerse myself in the intricate world of coding and digital solution creation. My journey in the realm of technology is driven by a profound enjoyment of working with computers and an innate love for problem-solving. This enthusiasm not only fuels my academic endeavors but also shapes my approach to developing innovative web solutions. Whether it's tackling front-end aesthetics or wrestling with back-end logic, my comprehensive skill set enables me to bridge the gap between user experience and functional design. I am committed to leveraging my knowledge and skills to create impactful and user-friendly web applications, aspiring to make a significant contribution to the digital landscape.`}
+      />
+      <MyProjectsComponent/>
     </>
   );
 }

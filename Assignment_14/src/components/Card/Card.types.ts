@@ -6,6 +6,7 @@ export interface MyCardProps extends StyledCardProps {
   text?: string;
   color?: string;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export interface StyledCardProps {
@@ -13,4 +14,5 @@ export interface StyledCardProps {
   backgroundcolor?: string;
   alwaysShowText?: boolean;
   ishovered?: boolean;
+  staggered?: boolean;
 }

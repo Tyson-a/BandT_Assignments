@@ -1,7 +1,7 @@
 // DropdownItem.js
 import React from 'react';
 import styled from 'styled-components';
-import  DropdownItemProps  from './DropdownItem.types';
+import DropdownItemProps from './DropdownItem.types';
 
 const Item = styled.div`
   padding: 10px;

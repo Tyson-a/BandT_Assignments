@@ -12,6 +12,8 @@ const Container = styled.div<{ backgroundcolor: string; disabled?: boolean }>`
   padding: 10px;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   height: 60px;
+  position: relative;
+  z-index: 100;
 `;
 
 const HamburgerMenu = styled.div`

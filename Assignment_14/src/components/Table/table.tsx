@@ -50,11 +50,11 @@ const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, 
       <tbody>
         <TableRow>
           <TableCell>HTML</TableCell>
-          <TableCell stars={starsHTML} disabled={disabled} /> 
+          <TableCell isSkillCell stars={starsHTML} disabled={disabled} /> 
         </TableRow>
         <TableRow>
           <TableCell>CSS</TableCell>
-          <TableCell stars={starsCSS} disabled={disabled} /> 
+          <TableCell isSkillCell stars={starsCSS} disabled={disabled} /> 
         </TableRow>
       </tbody>
       <TableFooter>

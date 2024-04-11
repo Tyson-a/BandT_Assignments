@@ -9,7 +9,7 @@ const meta: Meta<typeof NavBar> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: {
+    backgroundcolor: {
       control: 'color',
       description: 'Background color of the NavBar',
     },
@@ -26,7 +26,7 @@ export default meta;
 // Default state story
 export const Default: StoryObj<typeof NavBar> = {
   args: {
-    backgroundColor: 'lightgray', // Example default color
+    backgroundcolor: 'lightgray', // Example default color
     disabled: false,
   },
 };
@@ -34,7 +34,7 @@ export const Default: StoryObj<typeof NavBar> = {
 // Disabled state story
 export const Disabled: StoryObj<typeof NavBar> = {
   args: {
-    backgroundColor: 'lightgray',
+    backgroundcolor: 'lightgray',
     disabled: true,
   },
 };
