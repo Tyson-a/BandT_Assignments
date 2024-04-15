@@ -14,6 +14,7 @@ const FooterContainer = styled.footer`
     flex-direction: column;
     align-items: center;
     text-align: left;
+    padding: 1rem; // Adjust padding for smaller screens if needed
   }
 `;
 
@@ -26,21 +27,38 @@ const FooterIcons = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-top: 1rem; // Adds space between the text and icons
     gap: 16px;
     justify-content: space-around;
+    
+    & > a {
+      margin-left: 0; // Remove the margin between icons for mobile
+    }
   }
 `;
 
 const Img = styled.img`
   width: 24px; // Adjust width as needed
   height: auto; // Adjust height as needed
+
+  @media (max-width: 768px) {
+    width: 60px; // Increase icon size for mobile
+    height: auto;
+    padding-bottom: 16px;
+  }
+`;
+
+// Update the MyLabelComponent if it accepts size props or create a styled component to override
+const LabelForMobile = styled(MyLabelComponent)`
+  @media (max-width: 768px) {
+    font-size: 55px; // Increase font size for mobile, adjust as needed
+    /* Adjust other styles if needed */
+  }
 `;
 
 const MyFooter: React.FC = () => {
   return (
     <FooterContainer>
-      <MyLabelComponent color='white' fontSize='45px' text="Tyson La"></MyLabelComponent> 
+      <LabelForMobile color='white' fontSize='65px' text="Tyson La" />
       <FooterIcons>
         <a href="mailto:bob.rice@example.com" target="_blank" rel="noopener noreferrer">
           <Img src="email.png" alt="Email" />
