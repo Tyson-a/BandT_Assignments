@@ -3,14 +3,16 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import LabelComponent from './Label';
 
-it('renders with default styling', () => {
-  render(<LabelComponent text="Default Label" htmlFor="testInput" />);
+test('renders with default styling', () => {
+  render(<LabelComponent text="Default Label" />);
   const label = screen.getByText('Default Label');
+
   expect(label).toHaveStyle('fontWeight: normal');
-  expect(label).toHaveStyle('color: '); // Assuming default color is not explicitly set
-  expect(label).toHaveStyle('backgroundColor: transparent'); // Adjust based on your default styles
+  expect(label).toHaveStyle('color: black'); // Since default color is black
+  expect(label).toHaveStyle('backgroundColor: transparent');
   expect(label).toHaveStyle('fontSize: inherit');
 });
+
 
 it('applies bold styling when bold prop is true', () => {
     render(<LabelComponent text="Bold Label" bold htmlFor="testInput" />);

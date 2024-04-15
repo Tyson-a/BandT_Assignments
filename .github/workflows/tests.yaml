@@ -46,7 +46,7 @@ jobs:
       - run: npm ci
       - run: echo $BUILD_PATH_PREFIX
       - name: Build the project
-        run: npm run build # Assuming this was meant to be 'build' and not 'cd'
+        run: npm run cd
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
