@@ -1,8 +1,6 @@
 name: Run tests then Deploy
 on:
   push:
-    branches:
-      - Assignment_14  # Trigger only for Assignment_14 branch
   workflow_dispatch:
 
 permissions:

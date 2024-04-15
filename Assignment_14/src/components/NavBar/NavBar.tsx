@@ -4,6 +4,7 @@ import NavBarProps from './NavBar.types';
 import { MyDropdownComponent } from '../Dropdown';
 import { MyLabelComponent } from '../Label';
 
+// Adjust styles for phone mode using media queries
 const Container = styled.div<{ backgroundcolor: string; disabled?: boolean; visible: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -12,12 +13,16 @@ const Container = styled.div<{ backgroundcolor: string; disabled?: boolean; visi
   padding: 10px;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   height: 60px;
-  position: fixed; /* Make nav bar fixed */
+  position: fixed;
   top: 0;
   width: 100%;
-  transition: top 0.3s; /* Smooth transition for moving nav bar */
+  transition: top 0.3s;
   z-index: 100;
-  top: ${(props) => (props.visible ? '0' : '-100px')}; /* Hide or show based on visibility */
+  top: ${(props) => (props.visible ? '0' : '-100px')};
+
+  @media (max-width: 768px) {
+    top: 0 !important;  // Always visible and fixed at the top
+  }
 `;
 
 const HamburgerMenu = styled.div`
@@ -38,15 +43,19 @@ const NavBarComponent: React.FC<NavBarProps> = ({ backgroundcolor = 'black', dis
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setVisible(currentScrollY > lastScrollY || currentScrollY === 0); // Show on scroll down or at the top of the page
-      setLastScrollY(currentScrollY); // Update the last scroll position
+      if (window.innerWidth > 768) {  // Only enable scroll visibility toggle on non-phone screens
+        const currentScrollY = window.scrollY;
+        setVisible(currentScrollY > lastScrollY || currentScrollY === 0);
+        setLastScrollY(currentScrollY);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);  // Ensure functionality on screen resize
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, [lastScrollY]);
 
