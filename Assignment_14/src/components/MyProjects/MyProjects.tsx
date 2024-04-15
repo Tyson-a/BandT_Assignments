@@ -14,12 +14,24 @@ const MyProjectsContainer = styled.div`
 
 
 const ProjectsGrid = styled.div`
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap; // Prevents items from wrapping to the next line
-gap: 16px;
-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    & > div:nth-child(odd) { // Apply to odd children
+      transform: translateX(50%); // Move to the right
+    }
+
+    & > div:nth-child(even) { // Apply to even children
+      transform: translateX(-50%); // Move to the left
+    }
+  }
 `;
 
 const projects: MyCardProps[] = [

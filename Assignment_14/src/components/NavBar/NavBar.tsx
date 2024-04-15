@@ -4,7 +4,6 @@ import NavBarProps from './NavBar.types';
 import { MyDropdownComponent } from '../Dropdown';
 import { MyLabelComponent } from '../Label';
 
-// Adjust styles for phone mode using media queries
 const Container = styled.div<{ backgroundcolor: string; disabled?: boolean; visible: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -21,7 +20,7 @@ const Container = styled.div<{ backgroundcolor: string; disabled?: boolean; visi
   top: ${(props) => (props.visible ? '0' : '-100px')};
 
   @media (max-width: 768px) {
-    top: 0 !important;  // Always visible and fixed at the top
+    top: 0 !important; // Always visible and fixed at the top
   }
 `;
 
@@ -35,6 +34,11 @@ const HamburgerMenu = styled.div`
   justify-content: center;
   padding: 10px;
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 2.5em;  // Increase font size for better visibility on smaller screens
+    padding: 20px;  // Increase padding for a larger touch area
+  }
 `;
 
 const NavBarComponent: React.FC<NavBarProps> = ({ backgroundcolor = 'black', disabled = false }) => {
@@ -63,7 +67,7 @@ const NavBarComponent: React.FC<NavBarProps> = ({ backgroundcolor = 'black', dis
     <Container backgroundcolor={backgroundcolor} disabled={disabled} visible={visible}>
       <MyLabelComponent color='white' htmlFor="navbarLabel" text="Tyson La" disabled={disabled} fontSize='55px'/>
       <HamburgerMenu aria-label="Toggle menu">
-        <MyDropdownComponent backgroundColor="transparent" boxShadow="none" disabled={disabled} />
+        <MyDropdownComponent backgroundColor="transparent" boxShadow="none" disabled={disabled} size="large" />
       </HamburgerMenu>
     </Container>
   );

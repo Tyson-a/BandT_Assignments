@@ -9,9 +9,6 @@ const StyledCard = styled.div<StyledCardProps>`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  &:nth-child(odd) {
-    margin-bottom: 325px; // This will push the odd cards down
-  }
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   background-color: ${({ backgroundcolor, disabled }) =>
     disabled ? 'rgba(169, 169, 169, 0.7)' : backgroundcolor || 'transparent'};
@@ -20,7 +17,6 @@ const StyledCard = styled.div<StyledCardProps>`
   transform: ${({ staggered }) => staggered ? 'translateY(100%)' : 'none'};
 
   &:hover {
-    // Include the staggered transform if staggered is true, and apply scale if not disabled
     transform: ${({ staggered, disabled }) => 
       `${staggered ? 'translateY(100%)' : ''} ${!disabled ? 'scale(1.05)' : ''}`};
   }
@@ -28,7 +24,7 @@ const StyledCard = styled.div<StyledCardProps>`
   img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: cover;
     border-radius: 10px;
     filter: ${({ disabled }) => (disabled ? 'grayscale(100%)' : 'none')}; 
   }
@@ -44,13 +40,22 @@ const StyledCard = styled.div<StyledCardProps>`
     text-align: center;
     opacity: ${({ alwaysShowText }) => (alwaysShowText ? 1 : 0)};
     transition: opacity 0.3s ease-in-out;
-    overflow: auto;
+    overflow: hidden;
   }
 
   &:hover .cardText {
     opacity: 1;
   }
-  
+
+  &:nth-child(odd) {
+    margin-bottom: 325px; // This will push the odd cards down
+  }
+
+  @media (max-width: 768px) {
+    &:nth-child(odd) {
+      margin-bottom: 0; // Remove the margin-bottom on mobile view
+    }
+  }
 `;
 
 const Card: React.FC<MyCardProps & StyledCardProps> = ({ src, text, disabled, backgroundcolor, color, alwaysShowText, ...props }) => {

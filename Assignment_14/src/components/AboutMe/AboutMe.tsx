@@ -6,27 +6,42 @@ import Label from '../Label/Label.tsx'; // Assuming Label is for headings
 import AboutMeProps from './AboutMe.types.ts'; // Make sure the path is correct
 
 const AboutMeContainer = styled.div`
-  display: flex; // Establish flexbox layout to allow side-by-side columns
-  justify-content: space-between; // Space out the child elements to match the layout
-  align-items: flex-start; // Align children to the start of the container
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start;
   padding: 24px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   font-family: 'Roboto', sans-serif;
   color: #333;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; // Centers items vertically within the column
-  margin-right: 40px; // Increase the right margin to keep distance from the RightColumn
+  justify-content: center;
+  margin-right: 40px;
+
+  @media (max-width: 768px) {
+    order: -1; // This will pull the label to the top in mobile view
+    width: 100%; // Full width for mobile view
+    text-align: center; // Center text for mobile view
+  }
 `;
+
 const RightColumn = styled.div`
-  flex: 2; // Takes up 2 parts of the flex space, giving it more space than the left column
+  flex: 2; 
   display: flex;
   flex-direction: column;
-  
+
+  @media (max-width: 768px) {
+    order: -1; // This ensures the label comes above the text and table on mobile view.
+  }
 `;
 
 /* Label (heading) styles */

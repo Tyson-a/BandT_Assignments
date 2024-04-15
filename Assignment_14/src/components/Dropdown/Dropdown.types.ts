@@ -8,4 +8,5 @@ export default interface DropdownProps {
   disabled?: boolean;
   isVisible?: boolean;
   initialVisibility?: boolean;
+  size?: string;
 }
