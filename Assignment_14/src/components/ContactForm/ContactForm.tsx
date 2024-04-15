@@ -24,6 +24,10 @@ const ContentWrapper = styled.div`
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack children in a column on mobile devices
+  }
 `;
 
 const FormSection = styled.div`
