@@ -6,7 +6,7 @@ on:
       - Assignment_14  # This ensures the workflow runs only for pushes to Assignment_14
   workflow_dispatch:
     branches:
-      - Assignment_14  # This allows manual dispatch only for Assignment_14
+      - Assignment_14  
 
 permissions:
   contents: read
