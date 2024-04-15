@@ -68,3 +68,7 @@ jobs:
         working-directory: Assignment_14
 
       - run: echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
+
+      - name: Check Dist Directory
+        run: ls -alh dist/
+        working-directory: Assignment_14
