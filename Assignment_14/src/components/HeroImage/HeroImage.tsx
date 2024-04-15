@@ -50,7 +50,7 @@ const RadioButtonsContainer = styled.div`
   transform: translateX(-50%);
 `;
 
-const HeroImage: React.FC<HeroImageProps> = ({ disabled, }) => {
+const HeroImage: React.FC<HeroImageProps> = ({ disabled }) => {
   const [selectedPicture, setSelectedPicture] = useState('Banff');
 
   const handlePictureChange = (selectedOption: string) => {
@@ -61,7 +61,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, }) => {
 
   return (
     <HeroImageContainer>
-      <CardImage src={`src/components/HeroImage/${selectedPicture}.jpg`} alt={selectedPicture} />
+       <CardImage src={`/${selectedPicture}.jpg`} alt={selectedPicture} />
       <CardContent>
         <ContentWrap>
           <MyLabelComponent color='white' htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />

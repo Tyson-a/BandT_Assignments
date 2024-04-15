@@ -26,6 +26,7 @@ const RightColumn = styled.div`
   flex: 2; // Takes up 2 parts of the flex space, giving it more space than the left column
   display: flex;
   flex-direction: column;
+  
 `;
 
 /* Label (heading) styles */
@@ -35,7 +36,6 @@ const StyledLabel = styled(Label)`
   color: #000;
   margin-bottom: 16px; // Adjust if needed
   text-align: left; // Aligns text to the left within its column
-  // Removed margin-right as it's now handled by LeftColumn
 `;
 
 
@@ -59,7 +59,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ labelText, aboutText, starsHTML, star
   return (
     <AboutMeContainer>
       <LeftColumn>
-        <StyledLabel fontSize="45px" text={labelText} />
+        <StyledLabel  fontSize="45px" text={labelText} />
       </LeftColumn>
       <RightColumn>
         <StyledText text={aboutText} />
