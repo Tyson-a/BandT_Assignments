@@ -1,48 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import EmailInputProps from './EmailInput.types.ts';
+import NameInputProps from './NameInput.types.ts';
 
-// Assuming the props are defined inline for this example
-
+// Use the modified styled component for textarea
 const Input = styled.input<{ disabled?: boolean }>`
   padding: 10px;
   margin: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: ${(props) => (props.disabled ? '#f2f2f2' : 'white')};
-
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
 `;
 
-const EmailInputComponent: React.FC<EmailInputProps> = ({
-  initialEmail = '',
-  onEmailChange,
+const NameInputComponent: React.FC<NameInputProps> = ({
+  initialName = '',
+  onNameChange,
   disabled = false,
+  placeholder = 'Enter name',
   style, // Importing style prop
 }) => {
-  const [email, setEmail] = useState(initialEmail);
+  const [name, setName] = useState(initialName);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newEmail = event.target.value;
-    setEmail(newEmail);
-    if (onEmailChange) {
-      onEmailChange(newEmail);
+    const newName = event.target.value;
+    setName(newName);
+    if (onNameChange) {
+      onNameChange(newName);
     }
   };
 
   return (
     <Input
-      type="email"
-      value={email}
+      type="text"
+      value={name}
       onChange={handleChange}
-      placeholder="Enter your email"
+      placeholder={placeholder}
       disabled={disabled}
       style={style} // Pass style prop to Input component
     />
   );
 };
 
-export default EmailInputComponent;
+export default NameInputComponent;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import styled from 'styled-components';
-import TextInputProps from './TextInput.types.ts';
+import  TextInputProps  from './TextInput.types';  // Ensure that you have the correct path and file extension if necessary
 
-// Use the modified styled component for textarea
-const Textarea = styled.textarea<{ disabled?: boolean }>`
+// Define the styled textarea with disabled handling
+const Textarea = styled.textarea<{ disabled?: boolean; style?: CSSProperties }>`
   padding: 10px;
   margin: 5px;
   border: 1px solid #ccc;
@@ -22,8 +22,9 @@ const TextInputComponent: React.FC<TextInputProps> = ({
   onTextChange,
   disabled = false,
   placeholder = 'Enter text', // Default placeholder if not provided
+  style, // Included the style prop here
 }) => {
-  const [text, setText] = useState(initialText);
+  const [text, setText] = useState<string>(initialText);
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = event.target.value;
@@ -39,6 +40,7 @@ const TextInputComponent: React.FC<TextInputProps> = ({
       onChange={handleChange}
       placeholder={placeholder}
       disabled={disabled}
+      style={style} // Apply the style prop directly to the Textarea
     />
   );
 };

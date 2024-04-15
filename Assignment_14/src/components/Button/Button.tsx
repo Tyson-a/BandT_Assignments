@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MyButtonProps, StyleProps } from './Button.types';
+import MyButtonProps from './Button.types';
+import StyleProps  from './Button.types';
 
-// Adjust StyledButton to use direct style props instead of nesting them under styleProps
-const StyledButton = styled.button<Omit<MyButtonProps, 'backgroundColor' | 'boxShadow'> & StyleProps>`
+const StyledButton = styled.button<Omit<MyButtonProps, 'backgroundColor' | 'boxShadow' | 'color'> & StyleProps & { type?: 'button' | 'submit' | 'reset' }>`
   background: ${({ backgroundcolor }) => backgroundcolor || '#e74c3c'};
-  color: #fff;
+  color: ${({ color }) => color || '#fff'}; // Default color is white if not specified
   border: none;
   padding: 1em;
   font-weight: bold;
@@ -30,23 +30,28 @@ const StyledButton = styled.button<Omit<MyButtonProps, 'backgroundColor' | 'boxS
   }
 `;
 
-
-// MyButton component now takes MyButtonProps and StyleProps directly without nesting
-const MyButton: React.FC<MyButtonProps & StyleProps> = ({
+const MyButton: React.FC<MyButtonProps & StyleProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   onClick,
   disabled = false,
   backgroundcolor,
-  boxShadow, // Keep boxShadow here
-  ...rest // Filter out boxShadow from rest of the props
+  boxShadow,
+  color,
+  type, // Include the type prop
+  style,
+  ...rest
 }) => {
   return (
     <StyledButton
       disabled={disabled}
       onClick={onClick}
       backgroundcolor={backgroundcolor}
-      {...rest} // Spread the rest of the props without boxShadow
-      className={disabled ? 'disabled' : ''}
+      boxShadow={boxShadow}
+      color={color}
+      type={type} // Set the button type ('button', 'submit', 'reset')
+      style={style}
+      {...rest}
+      className={`${disabled ? 'disabled' : ''} ${rest.className || ''}`}
     >
       {children}
     </StyledButton>

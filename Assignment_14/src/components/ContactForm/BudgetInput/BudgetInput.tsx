@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BudgetInputProps from './BudgetInput.types.ts'; // Assuming you have defined props here
-
-
+import BudgetInputProps from './BudgetInput.types.ts';
 
 // Adjust the styled component to apply the disabled state
 const Input = styled.input<{ disabled?: boolean }>`
@@ -22,14 +20,22 @@ const BudgetInputComponent: React.FC<BudgetInputProps> = ({
   initialBudget = 0,
   onBudgetChange,
   disabled = false, // Default to false if not provided
+  style, // Importing style prop
 }) => {
-  const [budget, setBudget] = useState(initialBudget);
+  const [budget, setBudget] = useState<number>(initialBudget);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newBudget = parseFloat(event.target.value) || 0; 
-    setBudget(newBudget);
-    if (onBudgetChange) {
-      onBudgetChange(newBudget);
+    const newBudget = parseFloat(event.target.value);
+    if (newBudget >= 0) { // Check if the value is not negative
+      setBudget(newBudget);
+      if (onBudgetChange) {
+        onBudgetChange(newBudget);
+      }
+    } else {
+      setBudget(0); // Reset to zero if negative value is entered
+      if (onBudgetChange) {
+        onBudgetChange(0);
+      }
     }
   };
 
@@ -39,7 +45,9 @@ const BudgetInputComponent: React.FC<BudgetInputProps> = ({
       value={budget.toString()}
       onChange={handleChange}
       placeholder="Enter your budget"
-      disabled={disabled} 
+      disabled={disabled}
+      style={style} // Pass style prop to Input component
+      min="0" // Set the minimum value to 0
     />
   );
 };
