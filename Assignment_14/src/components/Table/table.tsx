@@ -1,4 +1,3 @@
-// Table.tsx
 import React from 'react';
 import TableHeader from './Table_Header/Table_Header.tsx';
 import TableRow from './Table_Row/Table_Row.tsx';
@@ -38,15 +37,15 @@ const StyledTable = styled.table<TableProps>`
   border-spacing: 0;
 `;
 
-const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, starsCSS = 0,  ...rest}) => {
+const Table: React.FC<TableProps> = ({ disabled, backgroundColor, starsHTML = 0, starsCSS = 0, starsJS = 0, starsAWS = 0, starsRuby = 0, ...rest }) => {
   return (
-    <StyledTable  disabled={disabled} {...rest} style={{ backgroundColor }}  data-testid="table">
+    <StyledTable disabled={disabled} {...rest} style={{ backgroundColor }} data-testid="table">
       <TableHeader>
-  <tr>
-    <th>Name</th>
-    <th>Skill Level</th>
-  </tr>
-</TableHeader>
+        <tr>
+          <th>Name</th>
+          <th>Skill Level</th>
+        </tr>
+      </TableHeader>
       <tbody>
         <TableRow>
           <TableCell>HTML</TableCell>
@@ -56,13 +55,24 @@ const Table: React.FC<TableProps> = ({ disabled, backgroundColor,starsHTML = 0, 
           <TableCell>CSS</TableCell>
           <TableCell isSkillCell stars={starsCSS} disabled={disabled} /> 
         </TableRow>
+        <TableRow>
+          <TableCell>JavaScript</TableCell>
+          <TableCell isSkillCell stars={starsJS} disabled={disabled} /> 
+        </TableRow>
+        <TableRow>
+          <TableCell>AWS</TableCell>
+          <TableCell isSkillCell stars={starsAWS} disabled={disabled} /> 
+        </TableRow>
+        <TableRow>
+          <TableCell>Ruby</TableCell>
+          <TableCell isSkillCell stars={starsRuby} disabled={disabled} /> 
+        </TableRow>
       </tbody>
       <TableFooter>
   <tr>
-    <td>Table Footer</td>
+    <td colSpan={2}>More to come...</td>
   </tr>
 </TableFooter>
-
     </StyledTable>
   );
 };

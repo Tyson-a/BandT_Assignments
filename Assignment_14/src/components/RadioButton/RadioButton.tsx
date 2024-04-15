@@ -1,9 +1,8 @@
-import React, { useState, DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import RadioButtonProps from './RadioButton.types';
 
-// Define a new type for your styled input that includes the custom 'circlesize' prop
-interface StyledInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+interface StyledInputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   circlesize: string;
 }
 
@@ -19,9 +18,8 @@ const StyledLabel = styled.label`
   margin-right: 10px;
 `;
 
-// Correctly apply types for the styled input, using StyledInputProps
 const StyledInput = styled.input.attrs<StyledInputProps>(props => ({
-  'aria-label': props['aria-label'], // Include other props as needed
+  'aria-label': props['aria-label'], // Ensure accessibility by using aria-label
 }))<StyledInputProps>`
   width: ${(props) => props.circlesize};
   height: ${(props) => props.circlesize};
@@ -37,12 +35,9 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Prevent the callback from being called if the component is disabled
     if (disabled) return;
-  
     const value = event.target.value;
     setSelectedOption(value);
-  
     if (onChange) {
       onChange(value);
     }
@@ -59,9 +54,9 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             onChange={handleOptionChange}
             disabled={disabled}
             circlesize={circlesize}
-            aria-label={option} // Example of passing a standard attribute through attrs
+            aria-label={option} // Helpful for screen readers
           />
-          {option}
+          {/* Removed the text label */}
         </StyledLabel>
       ))}
     </StyledRadioButtonWrapper>

@@ -7,7 +7,6 @@ import { MyEmailInputComponent } from './EmailInput/index.ts';
 import { MyTextInputComponent } from './TextInput/index.ts';
 import { MyNameInputComponent } from './NameInput/index.ts';
 import  { MyButtonComponent } from '../Button'
-import MyTextComponent from '../Text/Text.tsx'; // Assuming Text is for paragraphs
 import MyLabelComponent from '../Label/Label.tsx'; // Assuming Text is for paragraphs
 
 // Styled components
@@ -85,7 +84,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Container>
+    <Container id="contact-me">
       <ContentWrapper>
       <TextSection> 
       <MyLabelComponent

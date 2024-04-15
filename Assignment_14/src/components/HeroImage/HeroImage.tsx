@@ -4,6 +4,7 @@ import  { MyButtonComponent } from '../Button';
 import  HeroImageProps  from './HeroImage.types';
 import { MyRadioButtonComponent } from '../RadioButton';
 import { MyLabelComponent } from '../Label';
+import { Link } from 'react-scroll';
 
 
 const ButtonContainer = styled.div`
@@ -61,28 +62,22 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled }) => {
 
   return (
     <HeroImageContainer>
-       <CardImage src={`/${selectedPicture}.jpg`} alt={selectedPicture} />
+      <CardImage src={`/${selectedPicture}.jpg`} alt={selectedPicture} />
       <CardContent>
         <ContentWrap>
           <MyLabelComponent color='white' htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />
-          <MyLabelComponent color='white' htmlFor="websites" text="I make websites" disabled={disabled}  fontSize='25px'/>
+          <MyLabelComponent color='white' htmlFor="websites" text="I make websites" disabled={disabled} fontSize='25px'/>
           <ButtonContainer>
-            <MyButtonComponent
-              onClick={() => console.log("Button clicked")}
-              backgroundcolor="black"
-              boxShadow="0px 7px 2px black, 0px 8px 5px #000"
-              disabled={disabled}
-            >
-              <MyLabelComponent color='white' htmlFor="projectsButton" text="Projects" disabled={disabled} />
-            </MyButtonComponent>
-            <MyButtonComponent
-              onClick={() => console.log("Button clicked")}
-              backgroundcolor="black"
-              boxShadow="0px 7px 2px black, 0px 8px 5px #000"
-              disabled={disabled}
-            >
-              <MyLabelComponent color='white' htmlFor="contactButton" text="Contact Me" disabled={disabled} />
-            </MyButtonComponent>
+            <Link to="my-projects" smooth={true} duration={500}>
+              <MyButtonComponent backgroundcolor="black" boxShadow="0px 7px 2px black, 0px 8px 5px #000" disabled={disabled}>
+                <MyLabelComponent color='white' text="Projects" disabled={disabled} />
+              </MyButtonComponent>
+            </Link>
+            <Link to="contact-me" smooth={true} duration={500}>
+              <MyButtonComponent backgroundcolor="black" boxShadow="0px 7px 2px black, 0px 8px 5px #000" disabled={disabled}>
+                <MyLabelComponent color='white' text="Contact Me" disabled={disabled} />
+              </MyButtonComponent>
+            </Link>
           </ButtonContainer>
         </ContentWrap>        
       </CardContent>

@@ -23,11 +23,11 @@ justify-content: center;
 `;
 
 const projects: MyCardProps[] = [
-  { src: 'MovieDBMS.jpeg', text: 'Project 1', color: 'blue' },
-  { src: 'Rails.jpeg', text: 'Project 2', color: 'green' },
-  { src: 'Java.jpeg', text: 'Project 2', color: 'green' },
-  { src: 'PHP.jpeg', text: 'Project 2', color: 'green' },
-  { src: 'React.jpeg', text: 'Project 2', color: 'green' },
+  { src: 'MovieDBMS.jpeg', text: 'Movie DBMS', color: 'white' },
+  { src: 'Rails.jpeg', text: 'Rails e-shop', color: 'white' },
+  { src: 'Java.jpeg', text: 'Various Java Projects', color: 'white' },
+  { src: 'PHP.jpeg', text: 'PHP database', color: 'white' },
+  { src: 'React.jpeg', text: 'React Portfolio', color: 'white' },
   
 ];
 
@@ -47,7 +47,8 @@ const TitleContainer = styled.div`
 
 const MyProjects: React.FC = () => {
   return (
-    <MyProjectsContainer>
+  
+    <MyProjectsContainer id="my-projects">
        <TitleContainer>
         <SectionTitle  fontSize='50px' text="My Projects" />
       </TitleContainer>

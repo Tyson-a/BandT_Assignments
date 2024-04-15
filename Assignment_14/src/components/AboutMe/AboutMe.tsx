@@ -55,15 +55,16 @@ const StyledTable = styled(Table)`
   /* Other styles you need to apply to your table */
 `;
 
-const AboutMe: React.FC<AboutMeProps> = ({ labelText, aboutText, starsHTML, starsCSS }) => {
+const AboutMe: React.FC<AboutMeProps> = ({ labelText, aboutText, }) => {
   return (
-    <AboutMeContainer>
+    
+    <AboutMeContainer id="about-me">
       <LeftColumn>
         <StyledLabel  fontSize="45px" text={labelText} />
       </LeftColumn>
       <RightColumn>
         <StyledText text={aboutText} />
-        <StyledTable starsHTML={starsHTML} starsCSS={starsCSS} />
+        <StyledTable starsHTML={5} starsCSS={4} starsJS={3} starsAWS={4} starsRuby={3}   />
       </RightColumn>
     </AboutMeContainer>
   );

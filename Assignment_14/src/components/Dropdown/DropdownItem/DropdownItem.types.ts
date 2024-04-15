@@ -7,4 +7,6 @@ export default interface DropdownItemProps {
   children?: React.ReactNode;
   disabled?: boolean;
   isVisible?: boolean;
+  "data-testid"?: string;
+  onClick?: () => void;  // Function type for click events
 }

@@ -9,4 +9,7 @@ export default interface TableProps {
   stars?: number;
   starsHTML?: number;
   starsCSS?: number;
+  starsJS?: number;
+  starsAWS?: number;
+  starsRuby?: number;
 }

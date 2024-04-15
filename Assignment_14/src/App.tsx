@@ -9,7 +9,6 @@ import MyFooter from './components/Footer/MyFooter';
 function App() {
   return (
     <>
-      <h1>Welcome to My Portfolio</h1>
       <NavBarComponent>
       </NavBarComponent>
       <HeroImageComponent/>
