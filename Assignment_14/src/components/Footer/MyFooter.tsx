@@ -37,11 +37,11 @@ const FooterIcons = styled.div`
 `;
 
 const Img = styled.img`
-  width: 24px; // Adjust width as needed
+  width: 60px; // Adjust width as needed
   height: auto; // Adjust height as needed
 
   @media (max-width: 768px) {
-    width: 60px; // Increase icon size for mobile
+    width: 100px; // Increase icon size for mobile
     height: auto;
     padding-bottom: 16px;
   }
