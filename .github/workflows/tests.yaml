@@ -1,8 +1,12 @@
-name: Run Tests then Deploy
+name: Run tests then Deploy
 
 on:
   push:
+    branches:
+      - Assignment_14  # This ensures the workflow runs only for pushes to Assignment_14
   workflow_dispatch:
+    branches:
+      - Assignment_14  # This allows manual dispatch only for Assignment_14
 
 permissions:
   contents: read
@@ -10,65 +14,54 @@ permissions:
   id-token: write
 
 jobs:
+
   test:
+    name: Run test suite
     runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: ./Dockerfile.ci
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          path: 'Assignment_14'
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Build docker images
-        run: docker build -t main -f $COMPOSE_FILE .
-        working-directory: Assignment_14
+    - name: Build docker images
+      run: docker build -t main -f $COMPOSE_FILE .
 
-      - name: Run tests
-        run: docker run main
-        working-directory: Assignment_14
+    - name: Run tests
+      run: docker run main
 
   deploy:
     name: Deploy to GH Pages
-    needs: test
     runs-on: ubuntu-latest
+    needs: [test]
     concurrency:
-      group: "pages-${{ github.run_id }}"
+      group: "pages"
       cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      BUILD_PATH_PREFIX: ${{ github.event.repository.name }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: 'Assignment_14'
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Setup Node
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: '20'
+          node-version: 20
           cache: 'npm'
-        working-directory: Assignment_14
-
       - run: npm ci
-        working-directory: Assignment_14
-
-      - run: npm run cd
-        working-directory: Assignment_14
-
+      - run: echo $BUILD_PATH_PREFIX
       - name: Build the project
-        run: npm run build
-        working-directory: Assignment_14
-
+        run: npm run cd
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-        working-directory: Assignment_14
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        working-directory: Assignment_14
-
-      - run: echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
-
-      - name: Check Dist Directory
-        run: ls -alh dist/
-        working-directory: Assignment_14
