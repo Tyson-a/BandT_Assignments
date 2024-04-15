@@ -2,7 +2,7 @@ name: Run tests then Deploy
 on:
   push:
     branches:
-      - Assignment_14  # Specify the branch here
+      - Assignment_14  # Trigger only for Assignment_14 branch
   workflow_dispatch:
 
 permissions:
@@ -11,13 +11,15 @@ permissions:
   id-token: write
 
 jobs:
-  test:
+  test_assignment_14:  # Unique job ID
     runs-on: ubuntu-latest
     env:
       COMPOSE_FILE: ./Dockerfile.ci
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          path: 'Assignment_14'  # Checkout the repo into the 'Assignment_14' directory
 
       - name: Build docker images
         run: docker build -t main -f $COMPOSE_FILE .
@@ -25,28 +27,12 @@ jobs:
 
       - name: Run tests
         run: docker run main
-
-  test:
-    name: Run test suite
-    runs-on: ubuntu-latest
-    env:
-      COMPOSE_FILE: ./Dockerfile.ci
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Build docker images
-        run: docker build -t main -f $COMPOSE_FILE .
         working-directory: ./Assignment_14
-
-      - name: Run tests
-        run: docker run main
 
   deploy:
     name: Deploy to GH Pages
     runs-on: ubuntu-latest
-    needs: [test]  # Uncomment this if you want the deploy to depend on the test job
+    needs: test_assignment_14  # Depends on the 'test_assignment_14' job
     concurrency:
       group: "pages"
       cancel-in-progress: false
@@ -73,11 +59,12 @@ jobs:
       - run: echo $BUILD_PATH_PREFIX
       - name: Build the project
         run: npm run cd
+        working-directory: ./Assignment_14  # Ensure this step is run in the correct directory
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: './Assignment_14/dist'  # Update this path if your build output is in the 'Assignment_14' directory
 
       - name: Deploy to GitHub Pages
         id: deployment
