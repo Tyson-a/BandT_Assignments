@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from '../Card/Card'; // Adjust the import path as necessary
 import { MyCardProps } from '../Card/Card.types';
+import { MyLabelComponent } from '../Label';
 
 const MyProjectsContainer = styled.div`
   background-color: #FFFFFF;
@@ -11,24 +12,15 @@ const MyProjectsContainer = styled.div`
   width: 100%; 
 `;
 
-const ProjectsHeader = styled.h2`
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 24px; // Adjust if needed
-  text-align: left; // Header aligned to the left
-`;
+
 const ProjectsGrid = styled.div`
 display: flex;
 flex-direction: row;
 flex-wrap: nowrap; // Prevents items from wrapping to the next line
 gap: 16px;
 justify-content: center;
-//height: calc(300px + 350px); /* Height of card + translateY amount */
+
 `;
-
-
-
-
 
 const projects: MyCardProps[] = [
   { src: 'MovieDBMS.jpeg', text: 'Project 1', color: 'blue' },
@@ -39,10 +31,26 @@ const projects: MyCardProps[] = [
   
 ];
 
+const SectionTitle = styled(MyLabelComponent)`
+  margin-left: 10px; // Align to the left edge of its container
+  padding-left: 0px; // No padding on the left side
+  font-family: 'Roboto', sans-serif;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 35px;
+  padding-bottom:25px;
+  
+`;
+
 const MyProjects: React.FC = () => {
   return (
     <MyProjectsContainer>
-      <ProjectsHeader>My Projects</ProjectsHeader>
+       <TitleContainer>
+        <SectionTitle  fontSize='50px' text="My Projects" />
+      </TitleContainer>
       <ProjectsGrid>
         {projects.map((project, index) => (
           <Card

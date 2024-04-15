@@ -4,7 +4,7 @@ import MyFooter from './MyFooter.tsx';
 
 
 const meta: Meta<typeof MyFooter> = {
-  title: 'Components/MyProjetcs', // Update the title to point to AboutMe
+  title: 'Components/MyFooter', // Update the title to point to AboutMe
   component: MyFooter,
   parameters: {
     layout: 'centered',

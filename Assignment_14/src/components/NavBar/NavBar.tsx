@@ -26,7 +26,7 @@ const HamburgerMenu = styled.div`
 const NavBarComponent: React.FC<NavBarProps> = ({ backgroundcolor = 'black', disabled = false }) => {
   return (
     <Container backgroundcolor={backgroundcolor} disabled={disabled}>
-      <MyLabelComponent htmlFor="navbarLabel" text="Tyson La" disabled={disabled} fontSize='55px'/>
+      <MyLabelComponent color='white' htmlFor="navbarLabel" text="Tyson La" disabled={disabled} fontSize='55px'/>
       <HamburgerMenu aria-label="Toggle menu">
         <MyDropdownComponent backgroundColor="transparent" boxShadow="none" disabled={disabled} />
       </HamburgerMenu>

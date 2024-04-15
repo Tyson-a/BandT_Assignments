@@ -14,8 +14,8 @@ const ButtonContainer = styled.div`
 
 const HeroImageContainer = styled.div`
   position: relative;
-  justify-content: center;
-  align-items: center;
+  width: 100%; // Ensures the container spans the full width
+  padding-bottom: 56.25%; // For 16:9 aspect ratio; adjust percentage based on your aspect ratio
   color: white;
 `;
 
@@ -30,12 +30,14 @@ const CardContent = styled.div`
 `;
 
 const CardImage = styled.img`
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   object-fit: cover;
-  z-index: 1;
+  z-index: 0;
 `;
-
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,8 +64,8 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, }) => {
       <CardImage src={`src/components/HeroImage/${selectedPicture}.jpg`} alt={selectedPicture} />
       <CardContent>
         <ContentWrap>
-          <MyLabelComponent htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />
-          <MyLabelComponent htmlFor="websites" text="I make websites" disabled={disabled}  fontSize='25px'/>
+          <MyLabelComponent color='white' htmlFor="greeting" text="Hi, I'm Tyson" disabled={disabled} fontSize='50px' />
+          <MyLabelComponent color='white' htmlFor="websites" text="I make websites" disabled={disabled}  fontSize='25px'/>
           <ButtonContainer>
             <MyButtonComponent
               onClick={() => console.log("Button clicked")}
@@ -71,7 +73,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, }) => {
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >
-              <MyLabelComponent htmlFor="projectsButton" text="Projects" disabled={disabled} />
+              <MyLabelComponent color='white' htmlFor="projectsButton" text="Projects" disabled={disabled} />
             </MyButtonComponent>
             <MyButtonComponent
               onClick={() => console.log("Button clicked")}
@@ -79,7 +81,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ disabled, }) => {
               boxShadow="0px 7px 2px black, 0px 8px 5px #000"
               disabled={disabled}
             >
-              <MyLabelComponent htmlFor="contactButton" text="Contact Me" disabled={disabled} />
+              <MyLabelComponent color='white' htmlFor="contactButton" text="Contact Me" disabled={disabled} />
             </MyButtonComponent>
           </ButtonContainer>
         </ContentWrap>        

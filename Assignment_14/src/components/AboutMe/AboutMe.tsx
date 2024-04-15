@@ -14,11 +14,9 @@ const AboutMeContainer = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   font-family: 'Roboto', sans-serif;
   color: #333;
- 
 `;
 
 const LeftColumn = styled.div`
-  
   display: flex;
   flex-direction: column;
   justify-content: center; // Centers items vertically within the column
@@ -61,7 +59,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ labelText, aboutText, starsHTML, star
   return (
     <AboutMeContainer>
       <LeftColumn>
-        <StyledLabel bold fontSize="45px" text={labelText} />
+        <StyledLabel fontSize="45px" text={labelText} />
       </LeftColumn>
       <RightColumn>
         <StyledText text={aboutText} />

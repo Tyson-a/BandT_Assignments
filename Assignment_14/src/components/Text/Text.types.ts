@@ -1,3 +1,6 @@
+import React, { CSSProperties } from 'react';
+
+
 
 export default interface TextProps {
   text?: string;
@@ -7,4 +10,5 @@ export default interface TextProps {
   disabled?: boolean;
   backgroundColor?: string;
   fontSize?: string;
+  style?: CSSProperties;
 }

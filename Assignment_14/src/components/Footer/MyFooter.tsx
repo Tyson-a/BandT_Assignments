@@ -28,11 +28,10 @@ const Img = styled.img`
 const MyFooter: React.FC = () => {
   return (
     <FooterContainer>
-      {/* Here we use the Label component instead of FooterName */}
-      <MyLabelComponent text="Tyson La"></MyLabelComponent> 
+      <MyLabelComponent color='white' fontSize='45px' text="Tyson La"></MyLabelComponent> 
       <FooterIcons>
-        <Img src="Email.png" alt="Email" />
-        <Img src="Instagram.png" alt="Instgram" />
+        <Img src="email.png" alt="Email" />
+        <Img src="instagram.png" alt="Instgram" />
         <Img src="github.png" alt="Github" />
         <Img src="linkedin.png" alt="LinkedIn" />
       </FooterIcons>

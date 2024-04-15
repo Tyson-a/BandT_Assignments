@@ -7,6 +7,8 @@ import { MyEmailInputComponent } from './EmailInput/index.ts';
 import { MyTextInputComponent } from './TextInput/index.ts';
 import { MyNameInputComponent } from './NameInput/index.ts';
 import  { MyButtonComponent } from '../Button'
+import MyTextComponent from '../Text/Text.tsx'; // Assuming Text is for paragraphs
+import MyLabelComponent from '../Label/Label.tsx'; // Assuming Text is for paragraphs
 
 // Styled components
 const Container = styled.div`
@@ -15,6 +17,7 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   background-color: #FFFFFF;
+  z-index: 1;
 `;
 
 const ContentWrapper = styled.div`
@@ -29,13 +32,18 @@ const FormSection = styled.div`
   padding: 2rem;
 `;
 
+// TextSection uses a column flex layout to align items to the start
 const TextSection = styled.div`
-  flex: 1;
-  padding: 2rem;
-  color: black;
-  text-align: left; /* Add this line to align the text to the left */
+  padding: 20px 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  width: 500px; // Set a fixed width
+  height: 300px; // Set a fixed height, or remove if you want it to expand vertically
+  
 `;
-
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -43,17 +51,6 @@ const StyledForm = styled.form`
   justify-content: flex-start;
 `;
 
-// New Label and Text styled components
-const Label = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-`;
-
-const Text = styled.p`
-  font-size: 1rem;
-  color: #333;
-`;
 
 const inputStyle = {
   color: 'black', // Ensure text is black
@@ -90,9 +87,19 @@ const ContactForm = () => {
   return (
     <Container>
       <ContentWrapper>
-        <TextSection>
-          <Label>Get in Touch</Label>
-          <Text>Let's get in contact. Leave your information and I will get back to you as soon as I can.</Text>
+      <TextSection> 
+      <MyLabelComponent
+          text="Get in touch" 
+          color='black'
+          fontSize='45px'
+          />
+
+          <MyLabelComponent 
+            text="Let's get in contact. Leave your information and I will get back to you as soon as I can." 
+            color='black'
+            fontSize='45px'
+            
+          />
         </TextSection>
         <FormSection>
           <StyledForm>
