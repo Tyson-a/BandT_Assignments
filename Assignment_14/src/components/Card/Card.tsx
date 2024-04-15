@@ -28,7 +28,7 @@ const StyledCard = styled.div<StyledCardProps>`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
     border-radius: 10px;
     filter: ${({ disabled }) => (disabled ? 'grayscale(100%)' : 'none')}; 
   }

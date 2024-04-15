@@ -26,8 +26,8 @@ const projects: MyCardProps[] = [
   { src: 'MovieDBMS.jpeg', text: 'Movie DBMS', color: 'white' },
   { src: 'Rails.jpeg', text: 'Rails e-shop', color: 'white' },
   { src: 'Java.jpeg', text: 'Various Java Projects', color: 'white' },
-  { src: 'PHP.jpeg', text: 'PHP database', color: 'white' },
-  { src: 'React.jpeg', text: 'React Portfolio', color: 'white' },
+  { src: 'PHP.png', text: 'PHP database', color: 'white' },
+  { src: 'React.png', text: 'React Portfolio', color: 'white' },
   
 ];
 
